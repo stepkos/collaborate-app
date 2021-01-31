@@ -4,7 +4,7 @@
 4. HOME - Home
 5. HOME - Chat
 6. HOME - Settings
-7. About
+7. HOME - About
 
 8. Project - details
 9. Person - details
