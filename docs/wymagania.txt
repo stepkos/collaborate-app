@@ -1,0 +1,28 @@
+WYMAGANIA
+
+Biznesowe
+- Pomoc w komunikacji zdalnej osób zainteresowanych wspólnym prowadzeniem projektow
+- Zaoszczędzenie czasu użytkowyników
+- Zgrupowanie w jednym miejscu ofert współpracy nad projektami
+- Sprzedaż usłóg konta premium
+
+Funkcjonalne
+- Aplikacja prowadzi konta użytkowników
+- Aplikacja gromadzi informacje o umiejętnościach użytkowików
+- Aplikacja gromadzi informacje o wymaganiach projektów
+- Aplikacja pozwala na komunikację po dopasowaniu użytkownika z ogłoszniem projektu
+
+Niefunkcjonalne
+- Dane użytkowników są bezpiecznie chronione
+- Aplikacja jest przystosowana do urządzeń o różnej przekątnej ekranu
+- Aplikacja obsługuje 500 tys. kont użytkowników
+- Maksymalny czas niesprawności systemu nie przekracza 6 godzin
+- Aplikacja automatycznie sporządza kopie zapasowe danych
+
+Zgodności
+- Dane są gromadzone i przechowywane według standardów ustawy o ochronie
+danych osobowych
+- Aplikacja nie gromadzi ale ani udostępnia żadnych danych bez zgody
+użytkownika
+
+

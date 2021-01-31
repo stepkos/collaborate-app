@@ -1,0 +1,14 @@
+1. LOGIN
+2. REGISTER
+3. MY PROFILE
+4. HOME - Home
+5. HOME - Chat
+6. HOME - Settings
+7. About
+
+8. Project - details
+9. Person - details
+
+10. MY PROJECT
+11. ADD PROJECT
+12. EDIT PROJECT
