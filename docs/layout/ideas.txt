@@ -12,3 +12,12 @@
 10. MY PROJECT
 11. ADD PROJECT
 12. EDIT PROJECT
+
+
+
+COLORS:
+#E63946 - red
+#F5F5F5 - light
+#DDDDDD - gray
+#457B9D - light blue
+#1D3557 - dark blue
