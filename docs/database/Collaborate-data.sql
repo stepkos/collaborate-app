@@ -21,7 +21,7 @@ insert into technology(name, color) values
 ("React", "#2eeaff"),
 ("ASP.NET", "#025dcc"),
 ("Angular", "#dd1b16"),
-("Vue.js", "#41B883")
+("Vue.js", "#41B883"),
 ("PHP", "#8993be"),
 ("Electron", "#0c3b47"),
 ("Android studio", "#2dde0d");
