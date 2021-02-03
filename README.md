@@ -1,5 +1,5 @@
 # Collaborate
-Platform to serch people to projects!
+Platform to search people to create projects together!
 
 ## How to run?
 - Install PHP and MySQL
