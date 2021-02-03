@@ -3,7 +3,8 @@ USE Collaborate;
 insert into Users(name, surname, password, email) VALUES
 ("Jan","Napieralski", "abecadło123", "janek@wp.pl"),
 ("Kamil", "Paczkowski","coscoslorem456", "kamiloo@onet.pl"),
-("Kuba","Stępkowski", "siddoloro678", "kubaa@interia.pl");
+("Kuba","Stępkowski", "siddoloro678", "kubaa@interia.pl"),
+("Antoni", "Testowy", "123ajshd", "coslorem@wp.pl");
 
 insert into technology(name, color) values 
 ("HTML", "#e34c26"),
