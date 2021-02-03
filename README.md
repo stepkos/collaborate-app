@@ -2,7 +2,15 @@
 Platform to serch people to projects!
 
 ## How to run?
-Fill data to connect with database here
+- Install PHP and MySQL
+- Create empty database
+
+- Execute this file
+```
+db/init.sql
+```
+
+- Fill data to connect with database here
 ```
 db/config.php
 ```
