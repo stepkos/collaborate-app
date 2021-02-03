@@ -29,7 +29,7 @@ CREATE TABLE Media (
   name VARCHAR(20) NOT NULL UNIQUE
 );
 
-CREATE TABLE User_Media (
+CREATE TABLE Users_Media (
   id_user int NOT NULL,
   id_media int NOT NULL,
   link VARCHAR(50) NOT NULL
@@ -68,7 +68,7 @@ CREATE TABLE Offert_Category (
   id_category int NOT NULL
 );
 
-CREATE TABLE Technology_Offert (
+CREATE TABLE Offert_Technology (
   id_technology int NOT NULL,
   id_offert int NOT NULL
 );
@@ -84,33 +84,33 @@ CREATE TABLE Chat (
 
 
 -- pododawaj on delete cascady OSTROŻNIE!!!!!!
---
---
-ALTER TABLE Users_Technology ADD FOREIGN KEY(id_user) REFERENCES Users(id);
+-- posprawdzaj czy usunięcie oferty nie usunie jej właściciela checked
+-- posprawdzaj to samo dla 2 ofert
+ALTER TABLE Users_Technology ADD FOREIGN KEY(id_user) REFERENCES Users(id) ON DELETE CASCADE;
 
 ALTER TABLE Users_Technology ADD FOREIGN KEY (id_technology) REFERENCES Technology (id);
 
-ALTER TABLE liked_Offert ADD FOREIGN KEY (id_user) REFERENCES Users (id);
+ALTER TABLE liked_Offert ADD FOREIGN KEY (id_user) REFERENCES Users (id) ON DELETE CASCADE;
 
-ALTER TABLE liked_Offert ADD FOREIGN KEY (id_offert) REFERENCES Offert (id);
+ALTER TABLE liked_Offert ADD FOREIGN KEY (id_offert) REFERENCES Offert (id) ON DELETE CASCADE;
 
-ALTER TABLE collabolators_Offert ADD FOREIGN KEY (id_user) REFERENCES  Users(id);
+ALTER TABLE collabolators_Offert ADD FOREIGN KEY (id_user) REFERENCES  Users(id) ON DELETE CASCADE  ;
 
-ALTER TABLE collabolators_Offert ADD FOREIGN KEY (id_offert) REFERENCES  Offert(id);
+ALTER TABLE collabolators_Offert ADD FOREIGN KEY (id_offert) REFERENCES  Offert(id) ON DELETE CASCADE;
 
-ALTER TABLE Technology_Offert ADD FOREIGN KEY (id_technology) REFERENCES Technology(id);
+ALTER TABLE Offert_Technology ADD FOREIGN KEY (id_technology) REFERENCES Technology(id);
 
-ALTER TABLE Technology_Offert ADD FOREIGN KEY (id_offert) REFERENCES Offert(id);
+ALTER TABLE Offert_Technology ADD FOREIGN KEY (id_offert) REFERENCES Offert(id) ON DELETE CASCADE;
 
 ALTER TABLE Offert ADD FOREIGN KEY (owner_id) REFERENCES Users(id);
 
-ALTER TABLE Offert_Category ADD FOREIGN KEY (id_offert) REFERENCES Offert (id);
+ALTER TABLE Offert_Category ADD FOREIGN KEY (id_offert) REFERENCES Offert (id) ON DELETE CASCADE;
 
 ALTER TABLE Offert_category ADD FOREIGN KEY (id_category) REFERENCES Project_category (id);
 
-ALTER TABLE User_Media ADD FOREIGN KEY (id_user) REFERENCES Users (id);
+ALTER TABLE Users_Media ADD FOREIGN KEY (id_user) REFERENCES Users (id) ON DELETE CASCADE;
 
-ALTER TABLE User_Media ADD FOREIGN KEY (id_media) REFERENCES Media (id);
+ALTER TABLE Users_Media ADD FOREIGN KEY (id_media) REFERENCES Media (id);
 
 
 
