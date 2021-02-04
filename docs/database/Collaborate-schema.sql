@@ -114,6 +114,16 @@ ALTER TABLE Users_Media ADD FOREIGN KEY (id_media) REFERENCES Media (id);
 
 
 
+CREATE USER 'user'@'localhost' IDENTIFIED BY '123';
+GRANT 'application_user' to 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.insert_new_offert TO 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.get_chat_history TO 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.insert_message TO 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.insert_match TO 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.insert_collaborator TO 'user'@'localhost';
+
+
+
 
 
 
