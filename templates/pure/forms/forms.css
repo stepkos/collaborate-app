@@ -67,6 +67,14 @@ input[type=submit] {
     border-radius: 15px;
 }
 
+input[type=submit]:hover {
+    background-color:#2E313C;
+}
+
 .center {
     text-align: center;
+}
+
+.error {
+
 }
