@@ -29,7 +29,12 @@
         }
 
         public function login() {
-            
+            $_SESSION["user_email"] = $this->email;
+            $_SESSION["is_logged"] = true;
+        }
+
+        public static function getInfo(int $user_id) {
+
         }
     }
 ?>
