@@ -1,6 +1,7 @@
 <?php
     class User {
         function __construct(
+            int id,
             string $first_name, 
             string $last_name, 
             string $email, 
@@ -11,6 +12,7 @@
             int $offers_key, 
             int $favourited_offers_key
         ) {
+            $this->id = ;
             $this->first_name = $first_name;
             $this->last_name = $last_name;
             $this->email = $email;
@@ -28,7 +30,7 @@
 
         public function login() {
             session_start();
-            $_SESSION["user_email"] = $this->email;
+            $_SESSION["user_id"] = $this->email;
             $_SESSION["is_logged"] = true;
         }
 
