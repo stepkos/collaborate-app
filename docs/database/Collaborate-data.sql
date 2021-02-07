@@ -11,7 +11,7 @@ insert into technology(name, color) values
 ("CSS", "#2965f1"),
 ("Python","#4B8BBE"),
 ("Java", "#f89820"),
-("Javascript", "#f0db4f RGB"),
+("Javascript", "#f0db4f"),
 ("C#", "#8442f5"),
 ("C++", "#42a7f5"),
 ("Rust", "#933A16"),

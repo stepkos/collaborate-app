@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><?php
-        echo $parameter."^2 = ".$parameter_power;
-    ?></h1>
+    <h1>
+        <?php
+            echo "Hello ".$_SESSION['user_id']
+        ?>
+    </h1>
 </body>
 </html>
