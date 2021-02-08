@@ -4,7 +4,7 @@
     $url = array_filter($url);
 
     // Redirect to controller if parameter given
-    if (null !== $url[2]) {
+    if ( isset($url[2]) ) {
         switch ($url[2]) {
             case "login":
                 require('./controllers/controller.php');
