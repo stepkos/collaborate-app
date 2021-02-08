@@ -7,6 +7,10 @@
     padding:0;
     
 }
+#menuLeft a{
+    text-decoration: none;
+    color:white;
+}
 #menuLeft #collaborate-logo{
     font-family: 'Pacifico', cursive;
     width:100%;
@@ -25,20 +29,49 @@
     width:103%;
     height:130px;
     background-color:#F74A57;
+    color:white;
     margin-left:0%;
     position: relative;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    padding-left:5%;
     -webkit-box-shadow: -1px 0px 3px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    -1px 0px 3px 0px rgba(50, 50, 50, 0.75);
     box-shadow:         -1px 0px 3px 0px rgba(50, 50, 50, 0.75);
 }
 #menuLeft #user-section #profile-picture{
-    width:60px;
-    height:60px;
-    object-fit: contain;
+    width:80px;
+    height:80px;
     border-radius:50%;
+    background-position: center;
+    background-size: contain;
 }
 #menuLeft #user-section #profile-picture img{
-    max-width:100%;
+    width:100%;
+     overflow:hidden;
+    border-radius:50%; 
+}
+#menuLeft #user-section #user-name-text{
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top:20%;
+    left:40%;
+    font-size:170%;
+}
+#menuLeft #user-section #myPanel{
+    position: absolute;
+    bottom:20%;
+    padding:1%;
+    left:40%;
+}
+#menuLeft #user-section #logOut{
+    position: absolute;
+    bottom:20%;
+    right:10%;
+    padding:1%;
+    background-color: var(--primary-red-color);
+    border-radius:20%;
 }
 #menuLeft .menu-option{
     color:white;
