@@ -1,5 +1,5 @@
 <?php
-    include 'models\UserModel.php';
+    require_once "models\UserModel.php";
 
     $test_user = new User(
         1,
@@ -16,5 +16,5 @@
 
     $test_user->register();
     
-    require('./views/TestUserView.php');
+    require_once "views/TestUserView.php";
 ?>
