@@ -1,5 +1,5 @@
 <?php
-    require_once "models\UserModel.php";
+    require_once "models/UserModel.php";
 
     $test_user = new User(
         1,

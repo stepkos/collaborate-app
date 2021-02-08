@@ -6,5 +6,3 @@ return [
     'password'  =>  '',
     'database'  =>  'collaborate'
 ];
-
-?>

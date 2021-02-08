@@ -5,12 +5,13 @@
 
     // Redirect to controller if parameter given
     if (isset($url[2]) ) {
-        
+
         switch ($url[2]) {
             case "login":
-                require_once "./controllers/loginController.php";
+                require_once "controllers/loginController.php";
         }
-    } else {
+    }
+    else {
         echo "Collaborate - Best tool for worst jobs";
     }
 ?> 

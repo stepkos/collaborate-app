@@ -1,10 +1,11 @@
 <?php
 
-$config = require_once 'config.php';
+$config = require_once __DIR__.'/config.php';
+// $config = require_once 'config.php';
 
 try {
-    return new PDO (
-        "mysql:host={$config['host']};
+    return new PDO ("
+        mysql:host={$config['host']};
         dbname={$config['database']};
         charset=utf8",
         $config['user'],
