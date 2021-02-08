@@ -2,6 +2,7 @@
     include 'models\UserModel.php';
 
     $test_user = new User(
+        1,
         "Imie",
         "Nazwisko",
         "basicmail@gmail.com",
@@ -13,7 +14,7 @@
         3,
     );
 
-    $test_user->login();
+    $test_user->register();
     
     require('./views/TestUserView.php');
 ?>

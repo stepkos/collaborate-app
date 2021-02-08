@@ -218,7 +218,7 @@ CREATE PROCEDURE insert_new_user (IN email1 varchar(50), IN name1 varchar(20), I
 
             SET @last_id = (SELECT MAX(id) FROM users);
             INSERT INTO users(email,name,surname,password) VALUES 
-            (email1, name1, surname1,password1);
+            (email1, name1, surname1, password1);
 
         COMMIT;
     END//

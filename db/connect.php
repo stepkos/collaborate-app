@@ -13,8 +13,12 @@ try {
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
     );
+
+    return $db;
 }
 catch (PDOException $error) {
     echo $error;
     exit('Database error');
 }
+
+?>
