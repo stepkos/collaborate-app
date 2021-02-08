@@ -15,6 +15,7 @@
     );
 
     $test_user->register();
+    $test_user->login();
     
     require_once "views/TestUserView.php";
 ?>

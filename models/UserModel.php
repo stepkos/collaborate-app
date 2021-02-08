@@ -34,7 +34,6 @@ class User {
         $stmt->bindValue(3, $this->surname, PDO::PARAM_STR);
         $stmt->bindValue(4, $this->password, PDO::PARAM_STR);
         $stmt->execute();
-        $this->login();
     }
 
     public function login() {
