@@ -1,7 +1,12 @@
 DROP DATABASE IF EXISTS Collaborate;
 CREATE DATABASE Collaborate;
-SET NAMES utf8mb4;
 USE Collaborate;
+SET NAMES utf8mb4;
+
+
+
+
+
 
 
 
@@ -139,11 +144,11 @@ insert into technology(name, color) values
 ("CSS", "#2965f1"),
 ("Python","#4B8BBE"),
 ("Java", "#f89820"),
-("JavaScript", "#f0db4f"),
+("Javascript", "#f0db4f"),
 ("C#", "#8442f5"),
 ("C++", "#42a7f5"),
 ("Rust", "#933A16"),
-("Golang", "#2fedd1"),
+("Goolang", "#2fedd1"),
 ("Flutter", "#1a66bd"),
 ("Kotlin", "#f58f1b"),
 ("Django", "#124f1c"),
@@ -153,7 +158,7 @@ insert into technology(name, color) values
 ("Vue.js", "#41B883"),
 ("PHP", "#8993be"),
 ("Electron", "#0c3b47"),
-("Android Studio", "#2dde0d");
+("Android studio", "#2dde0d");
 
 insert into Project_category(name, color) VALUES
 ("Desktop", "#d92c11"),
@@ -180,17 +185,11 @@ insert into Media(name) VALUES
 
 
 
-
 delimiter //
 CREATE PROCEDURE login_user (IN email1 varchar(50), IN password1 varchar(30))
     BEGIN
 
-        DECLARE EXIT HANDLER FOR SQLEXCEPTION
-            BEGIN
-                ROLLBACK;
-                SELECT 'Error : SQLError' AS 'message';
-            END;
-
+        
         SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
         START TRANSACTION;
 
@@ -207,18 +206,12 @@ delimiter //
 CREATE PROCEDURE insert_new_user (IN email1 varchar(50), IN name1 varchar(20), IN surname1 varchar(70), IN password1 varchar(30))
     BEGIN
 
-        DECLARE EXIT HANDLER FOR SQLEXCEPTION
-            BEGIN
-                ROLLBACK;
-                SELECT 'Error : SQLError' AS 'message';
-            END;
-
         SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
         START TRANSACTION;
 
             SET @last_id = (SELECT MAX(id) FROM users);
             INSERT INTO users(email,name,surname,password) VALUES 
-            (email1, name1, surname1, password1);
+            (email1, name1, surname1,password1);
 
         COMMIT;
     END//
@@ -234,11 +227,6 @@ delimiter //
 CREATE PROCEDURE insert_technology_user (IN id_user_inserting INT, IN technology VARCHAR(40))
        BEGIN
 
-            DECLARE EXIT HANDLER FOR SQLEXCEPTION
-                BEGIN
-                    ROLLBACK;
-                    SELECT 'Error : SQLError' AS 'message';
-                END;
 
             SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
             START TRANSACTION;
@@ -264,11 +252,6 @@ delimiter //
 CREATE PROCEDURE insert_collaborator (IN id_user_inserting INT, IN id_user_inserted INT, IN id_offert_destination INT)
        BEGIN
 
-        DECLARE EXIT HANDLER FOR SQLEXCEPTION
-            BEGIN
-                ROLLBACK;
-                SELECT 'Error : SQLError' AS 'message';
-            END;
 
         SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
             START TRANSACTION;
@@ -298,11 +281,6 @@ delimiter //
 CREATE PROCEDURE insert_match (IN id_user_inserted INT, IN id_offert1 INT)
        BEGIN
 
-            DECLARE EXIT HANDLER FOR SQLEXCEPTION
-                BEGIN
-                    ROLLBACK;
-                    SELECT 'Error : SQLError' AS 'message';
-                END;
 
             SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
             START TRANSACTION;
@@ -316,8 +294,8 @@ CREATE PROCEDURE insert_match (IN id_user_inserted INT, IN id_offert1 INT)
                 
 
                 IF @setmatch + 1 = 2 THEN
-                    @owner = (SELECT id FROM users INNER JOIN offert ON users.id = offert.owner_id WHERE offert.id = id_offert1);
-                    CALL insert_message(id_user_inserted, @owner, "Właśnie dostaliście matcha! Super! Teraz możecie do siebie pisać. Ta wiadomość została wygenerowana automatycznie")
+                    SET @owner = (SELECT id FROM users INNER JOIN offert ON users.id = offert.owner_id WHERE offert.id = id_offert1);
+                    CALL insert_message(id_user_inserted, @owner, "Właśnie dostaliście matcha! Super! Teraz możecie do siebie pisać. Ta wiadomość została wygenerowana automatycznie");
                     SELECT 'Match' AS 'message';
                 ELSE
                     SELECT 'Not match' AS 'message'; 
@@ -391,17 +369,9 @@ delimiter ;
 delimiter //
 CREATE PROCEDURE insert_message(IN id_sender1 INT, IN id_recipent1 INT, IN message1 VARCHAR(255))
        BEGIN
-            SET TRANSACTION ISOLATION LEVEL READ COMMITED;
             START TRANSACTION;
 
-                DECLARE EXIT HANDLER FOR SQLEXCEPTION
-                    BEGIN
-                        ROLLBACK;
-                        SELECT 'Error : SQLError' AS 'message';
-                    END;
-
-                INSERT INTO chat(id_recipent, id_sender, message, time_sended) VALUES
-                (id_recipent1, id_sender1, message1, now());
+                INSERT INTO chat(id_recipent, id_sender, message, time_sended) VALUES (id_recipent1, id_sender1, message1, now());
                 
             COMMIT;
     END//
@@ -409,3 +379,10 @@ delimiter ;
 
 
 
+DROP USER IF EXISTS 'user'@'localhost';
+CREATE USER 'user'@'localhost' IDENTIFIED BY '123';
+GRANT 'application_user' to 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.insert_new_offert TO 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.insert_message TO 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.insert_match TO 'user'@'localhost';
+GRANT EXECUTE ON PROCEDURE collaborate.insert_collaborator TO 'user'@'localhost';
