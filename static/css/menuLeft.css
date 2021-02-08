@@ -1,0 +1,79 @@
+#menuLeft{
+    width:23%;
+    height:100vh;
+    position:fixed;
+    background-color:#E63946;
+    margin:0;
+    padding:0;
+    
+}
+#menuLeft #collaborate-logo{
+    font-family: 'Pacifico', cursive;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:auto;
+    text-align: center;
+    padding-top:30px;
+    padding-bottom:30px;
+    color:white;
+    font-size:2em;
+    text-shadow: 0px 2px 11px rgba(232, 212, 31, 1);
+}
+#menuLeft #user-section{
+    width:103%;
+    height:130px;
+    background-color:#F74A57;
+    margin-left:0%;
+    position: relative;
+    -webkit-box-shadow: -1px 0px 3px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    -1px 0px 3px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         -1px 0px 3px 0px rgba(50, 50, 50, 0.75);
+}
+#menuLeft #user-section #profile-picture{
+    width:60px;
+    height:60px;
+    object-fit: contain;
+    border-radius:50%;
+}
+#menuLeft #user-section #profile-picture img{
+    max-width:100%;
+}
+#menuLeft .menu-option{
+    color:white;
+    width:100%;
+    height:auto;
+    line-height:2;
+    font-size:2em;
+    font-family: 'Roboto', sans-serif;
+    font-style:bold;
+    margin-top:50px;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    position: relative;
+    text-decoration: none;
+}
+#menuLeft .menu-option::before{
+    content:'';
+    position:absolute;
+    height:50%;
+    width:10px;
+    left:-10px;
+    top:25%;
+    background-color:white;
+    border-top-right-radius:40%;
+    border-bottom-right-radius:40%;
+    transition:0.2s ease-in;
+}
+#menuLeft .menu-option .option-icons{
+    font-size:1.4em;
+    margin-left:5%;
+}
+#menuLeft .menu-option .option-text{
+    margin-left:5%;
+}
+#menuLeft .menu-option:hover::before{
+    left:0px;
+}
