@@ -3,7 +3,7 @@
 $config = require_once 'config.php';
 
 try {
-    $db = new PDO(
+    return new PDO (
         "mysql:host={$config['host']};
         dbname={$config['database']};
         charset=utf8",
@@ -13,12 +13,8 @@ try {
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
     );
-
-    return $db;
 }
 catch (PDOException $error) {
     echo $error;
     exit('Database error');
 }
-
-?>
