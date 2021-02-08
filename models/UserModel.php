@@ -30,11 +30,11 @@
 
         public function register() {
             global $db;
-            $stmt = $db->prepare("CALL insert_new_user(?)");
-            $stmt->bindValue(':email1', $this->email, PDO::PARAM_STR);
-            $stmt->bindValue(':name1', $this->name, PDO::PARAM_STR);
-            $stmt->bindValue(':surname1', $this->surname, PDO::PARAM_STR);
-            $stmt->bindValue(':password1', $this->password, PDO::PARAM_STR);
+            $stmt = $db->prepare("CALL insert_new_user(?, ?, ?, ?)");
+            $stmt->bindValue(1, $this->email, PDO::PARAM_STR);
+            $stmt->bindValue(2, $this->name, PDO::PARAM_STR);
+            $stmt->bindValue(3, $this->surname, PDO::PARAM_STR);
+            $stmt->bindValue(4, $this->password, PDO::PARAM_STR);
             $stmt->execute();
             $this->login();
         }
