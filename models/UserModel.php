@@ -24,5 +24,20 @@ class User {
         session_start();
         $_SESSION["user_id"] = $this->id;
     }
+    
+    public static function checkIfAlreadyExists(string $email) {
+        $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
+        $sql = "SELECT * FROM users WHERE email='$email'";
+        $if_exist = $db->query($sql)->fetchColumn();
+        if ($if_exist) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function authenticate(string $email, string $password) {
+        // TODO
+    }
 
 }
