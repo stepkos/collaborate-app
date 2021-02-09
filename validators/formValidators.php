@@ -22,7 +22,7 @@ class FormValidators {
     }
     
     public static function login() {
-        
+
         if (isset($_POST['email']))
             $_SESSION['form_email'] = filter_input(INPUT_POST, 'email');
 

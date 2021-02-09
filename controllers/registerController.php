@@ -1,7 +1,12 @@
 <?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header('Location: home');
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    session_start();
     
     require_once "models/UserModel.php";
     require_once "validators/formValidators.php";
@@ -13,10 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: login');
         exit();
     }
-
 }
 
 require_once "views/register.php";
-
-
-
