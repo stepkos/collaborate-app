@@ -2,41 +2,26 @@
 
 class User {
     public static function register(
-        int     $id,
-        string  $name, 
-        string  $surname, 
-        string  $email, 
-        string  $password, 
-        string  $profile_picture_url, 
-        string  $user_description,
-        int     $technologies_key, 
-        int     $offers_key, 
-        int     $favourited_offers_key) {
-            $db = require_once 'db/connect.php';
-        $stmt = $db->prepare("CALL insert_new_user(?, ?, ?, ?)");
-        $stmt->bindValue(1, $this->email, PDO::PARAM_STR);
-        $stmt->bindValue(2, $this->name, PDO::PARAM_STR);
-        $stmt->bindValue(3, $this->surname, PDO::PARAM_STR);
-        $stmt->bindValue(4, $this->password, PDO::PARAM_STR);
+            string  $email, 
+            string  $name, 
+            string  $surname, 
+            string  $password, 
+            string  $confirm_password
+        )
+    {
+        $db = require_once 'db/connect.php';
+        // CREATE FORM VALIDATE
+        $stmt = $db->prepare("CALL insert_new_user(:e, :n, :s, :p)");
+        $stmt->bindValue(":e", $this->email, PDO::PARAM_STR);
+        $stmt->bindValue(":n", $this->name, PDO::PARAM_STR);
+        $stmt->bindValue(":s", $this->surname, PDO::PARAM_STR);
+        $stmt->bindValue(":p", $this->password, PDO::PARAM_STR);
         $stmt->execute();
     }
 
-    public function login() {
+    public static function login(string $email, string $password) {
         session_start();
         $_SESSION["user_id"] = $this->id;
     }
 
-    // -----STATIC------
-    public static function getAll() {
-        $db = require_once 'db/connect.php';
-        $users = $db->query("SELECT id, name, surname, email FROM users");
-        return $users;
-    }
-    
-    // -----STATIC------
-    public static function getSingleUser(int $user_id) {
-        $db = require_once 'db/connect.php';
-        $users = $db->query("SELECT id, name, surname, email, profile_picture, description, companies from users WHERE id=".$user_id);
-        return $users;
-    }
 }
