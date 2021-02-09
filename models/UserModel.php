@@ -9,13 +9,14 @@ class User {
             string  $confirm_password
         )
     {
-        $db = require_once 'db/connect.php';
-        // CREATE FORM VALIDATE
-        $stmt = $db->prepare("CALL insert_new_user(:e, :n, :s, :p)");
-        $stmt->bindValue(":e", $this->email, PDO::PARAM_STR);
-        $stmt->bindValue(":n", $this->name, PDO::PARAM_STR);
-        $stmt->bindValue(":s", $this->surname, PDO::PARAM_STR);
-        $stmt->bindValue(":p", $this->password, PDO::PARAM_STR);
+        // $db = require_once 'db/connect.php';
+        $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
+        // CREATE FORM VALIDATE HERE
+        $stmt = $db->prepare('CALL insert_new_user(:e, :n, :s, :p)');
+        $stmt->bindValue(':e', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':n', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':s', $surname, PDO::PARAM_STR);
+        $stmt->bindValue(':p', $password, PDO::PARAM_STR);
         $stmt->execute();
     }
 

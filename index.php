@@ -10,6 +10,7 @@ if (isset($url[2]) ) {
     switch ($url[2]) {
         case "register":
             require_once "controllers/registerController.php";
+            break;
 
         default:
             echo "Error 404";

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="../static/css/forms.css" type="text/css">
+    <link rel="stylesheet" href="static/css/forms.css" type="text/css">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
     <main>
         <article>
             <div class="container">
-                <form action="#" method="POST">
+                <form method="POST">
                     <div class="fieldset">
     
                         

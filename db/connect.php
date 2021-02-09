@@ -1,7 +1,7 @@
 <?php
 
-$config = require_once __DIR__.'/config.php';
-// $config = require_once 'config.php';
+// $config = require_once __DIR__.'/config.php';
+$config = require_once 'db/config.php';
 
 try {
     return new PDO ("
@@ -9,7 +9,8 @@ try {
         dbname={$config['database']};
         charset=utf8",
         $config['user'],
-        $config['password'], [
+        $config['password']
+        , [
             PDO::ATTR_EMULATE_PREPARES => false,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
