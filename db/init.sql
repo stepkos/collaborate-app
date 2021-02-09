@@ -20,7 +20,9 @@ CREATE TABLE Users (
   premium boolean DEFAULT false,
   email varchar(50) UNIQUE NOT NULL,
   description TEXT,
-  companies TEXT
+  companies TEXT,
+  INDEX LOGIN_INDEX(email,password)
+  INDEX ID_INDEX(id)
 );
 
 CREATE TABLE Offert (
@@ -85,7 +87,8 @@ CREATE TABLE Chat (
   id_recipent int NOT NULL,
   id_sender int NOT NULL,
   message varchar(255) NOT NULL,
-  time_sended datetime NOT NULL
+  time_sended datetime NOT NULL,
+  INDEX GET_CHAT_DATA_INDEX(id_recipent, id_sender)
 );
 
 
@@ -219,31 +222,88 @@ CREATE PROCEDURE insert_new_user (IN email1 varchar(50), IN name1 varchar(20), I
 delimiter ; 
 
 
---!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--- TO TRZEBA WYWOŁYWAĆ W PĘTLI PHP 
--- WSTAWIA TYLKO POJEDYŃCZĄ TECHNOLOGIĘ
---!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 delimiter //
-CREATE PROCEDURE insert_technology_user (IN id_user_inserting INT, IN technology VARCHAR(40))
-       BEGIN
+CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN description1 TEXT, IN profile_picture1 blob, IN email_changed varchar(50), IN password_changed varchar(30), IN media_names TEXT, IN links_to_media TEXT, IN technology_list TEXT)
+    BEGIN
+
+        SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+        START TRANSACTION;
 
 
-            SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
-            START TRANSACTION;
-               
-                SET @check_technology = (SELECT id from Technology where name=technology);
+            UPDATE users SET description=description1, profile_picture=profile_picture1 WHERE id=id_user_inserting;
 
-                IF @check_technology IS NOT NULL THEN
-                    -- DODAĆ POTEM DODATKOWY IF CHRONIĄCY CZY NIE PRÓBUJEMY WSTAWIĆ DUPLIKATU
-                    INSERT INTO Users_Technology(id_user, id_technology) VALUES (id_user_inserting, @check_technology);
-                    SELECT 'Done' AS 'message';
-                ELSE
-                    SELECT 'Error : Wrong name' AS 'message';
-                END IF;
+            IF email_changed IS NOT NULL THEN
+                UPDATE users set email=email1 WHERE id=id_user_inserting;
+            END IF;
 
-            COMMIT;
-       END//
+            IF password_changed IS NOT NULL THEN
+                UPDATE users set password=password_changed WHERE id=id_user_inserting;
+            END IF;
+
+
+            iterator:LOOP
+
+                    IF CHAR_LENGTH(TRIM(technology_list)) = 0 OR technology_list IS NULL THEN
+                        LEAVE iterator;
+                    END IF;
+
+                    SET @_next = SUBSTRING_INDEX(technology_list,',',1);
+                    SET @_nextlen = CHAR_LENGTH(@_next);
+
+                    SET @_value = TRIM(@_next);
+
+                    set @help = (select id from technology where name=@_value);
+
+                    INSERT INTO USERS_technology(id_technology,id_user)
+                    values(@help,id_user_inserting); 
+                
+                    SET technology_list = INSERT(technology_list,1,@_nextlen + 1,'');
+
+                END LOOP;
+
+
+
+
+            iterator:LOOP
+
+                    IF CHAR_LENGTH(TRIM(media_names)) = 0 OR media_names IS NULL THEN
+                        LEAVE iterator;
+                    END IF;
+
+                    -- bez 1 to media_names
+                    -- z 1 to media_links
+
+                    SET @_next = SUBSTRING_INDEX(media_names,',',1);
+                    SET @_next1 = SUBSTRING_INDEX(links_to_media,',',1);
+
+                    SET @_nextlen = CHAR_LENGTH(@_next);
+                    SET @_nextlen1 = CHAR_LENGTH(@_next1);
+
+                    SET @_value = TRIM(@_next);
+                    SET @_value1 = TRIM(@_next1);
+
+                    set @help = (select id from technology where name=@_value);
+
+                    INSERT INTO users_media(id_technology,id_user, link)
+                    values(@help,id_user_inserting, @_value1); 
+                
+                    SET technology_list = INSERT(media_names,1,@_nextlen + 1,'');
+                    SET technology_list = INSERT(links_to_media,1,@_nextlen1 + 1,'');
+
+                END LOOP;
+
+
+
+
+
+        COMMIT;
+    END //
+
+
 delimiter ;
+
+
+
 
 
 
@@ -304,7 +364,6 @@ CREATE PROCEDURE insert_match (IN id_user_inserted INT, IN id_offert1 INT)
             COMMIT;
        END//
 delimiter ;
-
 
 
 delimiter //
@@ -386,3 +445,28 @@ GRANT EXECUTE ON PROCEDURE collaborate.insert_new_offert TO 'user'@'localhost';
 GRANT EXECUTE ON PROCEDURE collaborate.insert_message TO 'user'@'localhost';
 GRANT EXECUTE ON PROCEDURE collaborate.insert_match TO 'user'@'localhost';
 GRANT EXECUTE ON PROCEDURE collaborate.insert_collaborator TO 'user'@'localhost';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT users.id, users.name+' '+users.surname as 'fullname', users.email, users.description, users.active, users_media.link, media.name 
+from users inner join users_media on users.id = users_media.id_user;

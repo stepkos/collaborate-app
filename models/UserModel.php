@@ -20,11 +20,7 @@ class User {
         $stmt->execute();
     }
 
-    public static function login(string $email, string $password) {
-        session_start();
-        $_SESSION["user_id"] = $this->id;
-    }
-    
+
     public static function checkIfAlreadyExists(string $email) {
         $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
         $sql = "SELECT * FROM users WHERE email='$email'";
@@ -36,8 +32,36 @@ class User {
         }
     }
 
-    public static function authenticate(string $email, string $password) {
-        // TODO
+    public static function getIDByEmail(string $email) {
+        $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
+        $sql = "SELECT id FROM users WHERE email='$email'";
+        $id = $db->query($sql);
+        $id = $id->fetch();
+        return $id["id"];
     }
 
+    public static function validatePassword(string $password) {
+        $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
+        $sql = "SELECT * FROM users WHERE password='$password'";
+        $validPassword = $db->query($sql)->fetchColumn();
+        if ($validPassword) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function login(string $email, string $password) {
+        if (checkIfAlreadyExists($email) == false) {
+            $isPasswordValid = validatePassword($password);
+            $id = getIDByEmail($email);
+            if ($isPasswordValid && $id) {
+                session_start();
+                $_SESSION["user_id"] = $id;
+                require_once "views/TestUserView.php";
+            } else {
+                header("Location: http://localhost/collaborate/login");
+            }
+        }
+    }
 }
