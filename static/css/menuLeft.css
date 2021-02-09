@@ -5,6 +5,8 @@
     background-color:#E63946;
     margin:0;
     padding:0;
+    float: left;
+    z-index:2;
     
 }
 #menuLeft a{
@@ -26,7 +28,7 @@
     text-shadow: 0px 2px 11px rgba(232, 212, 31, 1);
 }
 #menuLeft #user-section{
-    width:103%;
+    width:101%;
     height:130px;
     background-color:#F74A57;
     color:white;
