@@ -21,7 +21,7 @@ CREATE TABLE Users (
   email varchar(50) UNIQUE NOT NULL,
   description TEXT,
   companies TEXT,
-  INDEX LOGIN_INDEX(email,password)
+  INDEX LOGIN_INDEX(email,password),
   INDEX ID_INDEX(id)
 );
 
