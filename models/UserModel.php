@@ -9,8 +9,7 @@ class User {
             string  $confirm_password
         )
     {
-        // $db = require_once 'db/connect.php';
-        $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
+        $db = require_once 'db/connect.php';
         // CREATE FORM VALIDATE HERE
         $stmt = $db->prepare('CALL insert_new_user(:e, :n, :s, :p)');
         $stmt->bindValue(':e', $email, PDO::PARAM_STR);
@@ -22,7 +21,7 @@ class User {
 
 
     public static function checkIfAlreadyExists(string $email) {
-        $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
+        $db = require_once 'db/connect.php';
         $sql = "SELECT * FROM users WHERE email='$email'";
         $if_exist = $db->query($sql)->fetchColumn();
         if ($if_exist) {
@@ -33,7 +32,7 @@ class User {
     }
 
     public static function getIDByEmail(string $email) {
-        $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
+        $db = require_once 'db/connect.php';
         $sql = "SELECT id FROM users WHERE email='$email'";
         $id = $db->query($sql);
         $id = $id->fetch();
@@ -41,7 +40,7 @@ class User {
     }
 
     public static function validatePassword(string $password) {
-        $db = new PDO( 'mysql:host=localhost;dbname=collaborate', 'root', '');
+        $db = require_once 'db/connect.php';
         $sql = "SELECT * FROM users WHERE password='$password'";
         $validPassword = $db->query($sql)->fetchColumn();
         if ($validPassword) {
