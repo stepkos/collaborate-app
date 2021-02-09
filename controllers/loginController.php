@@ -5,9 +5,9 @@ if($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "models/User.php";
+    include "models/UserModel.php";
     $user = new User();
-    $user->checkIfAlreadyExists($_POST["email"]);
+    $user->login($_POST['email'], $_POST['password']);
 }
 
 ?>
