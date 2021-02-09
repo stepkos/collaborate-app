@@ -18,6 +18,13 @@ if (isset($url[2]) ) {
             require_once "controllers/loginController.php";
             break;
 
+        case "logout":
+            require_once "controllers/logoutController.php";
+
+        case "home":
+            echo "HOME";
+            break;
+
         default:
             echo "Error 404";
     }
