@@ -22,7 +22,8 @@ if (isset($url[2]) ) {
             require_once "controllers/logoutController.php";
 
         case "home":
-            echo "HOME";
+            session_start();
+            echo "YOU HAVE ARLEADY LOGIN, Your user id is: ".$_SESSION['user_id'];
             break;
 
         default:
