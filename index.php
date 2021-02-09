@@ -1,5 +1,7 @@
 <?php
 
+define("ROOT_URL", "collaborate/");
+
 $url = $_SERVER["REQUEST_URI"];
 $url = explode("/", $url);
 $url = array_filter($url);

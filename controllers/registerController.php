@@ -1,10 +1,6 @@
 <?php
 
-if (isset($_POST['email'])
-&& isset($_POST['name'])
-&& isset($_POST['surname'])
-&& isset($_POST['password'])
-&& isset($_POST['confirm_password'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     require_once "models/UserModel.php";
     
@@ -16,7 +12,7 @@ if (isset($_POST['email'])
         $_POST['confirm_password']
     );
 
-    echo "Udało sie!";
+    header('Location: '.ROOT_URL.'login');
     exit();
 
 }
