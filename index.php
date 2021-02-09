@@ -1,17 +1,21 @@
-<?php 
-    $url = $_SERVER["REQUEST_URI"];
-    $url = explode("/", $url);
-    $url = array_filter($url);
+<?php
 
-    // Redirect to controller if parameter given
-    if (isset($url[2]) ) {
+$url = $_SERVER["REQUEST_URI"];
+$url = explode("/", $url);
+$url = array_filter($url);
 
-        switch ($url[2]) {
-            case "login":
-                require_once "controllers/loginController.php";
-        }
+// Redirect to controller if parameter given
+if (isset($url[2]) ) {
+
+    switch ($url[2]) {
+        case "register":
+            require_once "controllers/registerController.php";
+            break;
+
+        default:
+            echo "Error 404";
     }
-    else {
-        echo "Collaborate - Best tool for worst jobs";
+}
+else {
+    echo "Collaborate - Best tool for worst jobs";
     }
-?> 

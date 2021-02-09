@@ -1,21 +1,13 @@
-<?php
-    require_once "models/UserModel.php";
+<?php 
 
-    $test_user = new User(
-        1,
-        "Imie",
-        "Nazwisko",
-        "basicmail@gmail.com",
-        "kubica123",
-        "/profile_pictures/profile_pic.png",
-        "Jestem przykładowym użytkownikiem",
-        1,
-        2,
-        3,
-    );
+if($_SERVER["REQUEST_METHOD"] == "GET") {
+    require_once "views/login.php";
+}
 
-    $test_user->register();
-    $test_user->login();
-    
-    require_once "views/TestUserView.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "models/User.php";
+    $user = new User();
+    $user->checkIfAlreadyExists($_POST["email"]);
+}
+
 ?>
