@@ -13,6 +13,7 @@ if (isset($url[2]) ) {
         case "register":
             require_once "controllers/registerController.php";
             break;
+            
         case "login":
             require_once "controllers/loginController.php";
             break;

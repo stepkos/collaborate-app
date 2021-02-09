@@ -30,7 +30,7 @@
                         </div>
                         
                         <div class="center pt">
-                            <a href="register.html">Register If you already don't have account</a>
+                            <a href="register">Register If you already don't have account</a>
                         </div>
 
                     </fieldset>

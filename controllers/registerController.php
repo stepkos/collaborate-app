@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+    
     require_once "models/UserModel.php";
     
     User::register(
@@ -12,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_POST['confirm_password']
     );
 
-    header('Location: '.ROOT_URL.'login');
+    header('Location: login');
     exit();
-
+    
 }
 
 require_once "views/register.php";
