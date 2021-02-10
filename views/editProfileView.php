@@ -4,7 +4,7 @@
 <head>
 
     <?php require_once "templates/metadata.php"; ?>
-    <link rel="stylesheet" href="static/css/changeUserData.css" type="text/css"/>
+    <link rel="stylesheet" href="static/css/editProfile.css" type="text/css"/>
     <title>Document</title>
 
 </head>
@@ -14,14 +14,14 @@
     <?php require_once "templates/menuLeft.php"; ?>
 
     <main>
-        <form>
+        <form method="POST">
             <section id="left-panel-profile">
 
             <label for="profile-picture-input" id="label-picture"><img src="static/images/unknown-picture.jpg"/></label>
             <input type="file" alt="Profile picture input" id="profile-picture-input">
 
             <div id="description-holder">
-                <textarea placeholder="Your profile description..." cols="30" rows="10" style=""></textarea>
+                <textarea placeholder="Your profile description..." cols="30" rows="10"></textarea>
             </div>
             
             </section>
@@ -29,7 +29,7 @@
             <section id="top-panel-technology">
 
                 <label for="search-technology" id="search-label">Your technologies</label>
-                <input type="email" name="search-technology" id="search-input" placeholder="Search...">
+                <input type="text" name="search-technology" id="search-input" placeholder="Search...">
 
                 <div id="technologies-holder">
 
@@ -111,7 +111,7 @@
                 <input type="text" name="link-change-twitter">
             </section>
 
-            <input type="submit" value="submit" id="submit-button">
+            <input type="submit" value="Submit" id="submit-button">
         </form>
         
     </main>

@@ -45,7 +45,7 @@ main{
     width:90%;
     margin-top:40%;
     height:40%;
-    border-radius: 2.25em;
+    border-radius: 10%;
     background-color: var(--primary-red-color);
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@ main{
     height:80%;
     outline: none;
     border:none;
-    border-radius: 2.25em;
+    border-radius: 10%;
     resize: none;
     padding:10px;
 }
@@ -165,7 +165,7 @@ main{
     height:25%;
     left:33%;
     top:45%;
-    border-radius: 5%;
+    border-radius: 20px;
     background-color:var(--primary-red-color);
     box-shadow:1px 3px 13px 5px rgba(0,0,0,0.28);
     text-align: center;
@@ -182,8 +182,8 @@ main{
     top:45%;
     border-radius: 5%;
     background-color:white;
-    box-shadow:1px 3px 13px 5px rgba(0,0,0,0.28);
-    border:1px solid var(--primary-red-color);
+    box-shadow: 0px 0px 20px 5px var(--primary-red-color);
+    /* border:1px solid var(--primary-red-color); */
     display: flex;
     justify-content: content;
     flex-direction: column;
@@ -194,9 +194,11 @@ main{
     margin-left:10%;
     outline:none;
     border-radius: 6.25em;
-    border:1px solid rgb(184, 184, 184);
+    border: none;
+    padding: 5px 0;
     padding-left:10px;
     font-size:1.1em;
+    background-color: #D4D4D4;
    
 }
 
@@ -224,8 +226,13 @@ main{
     outline:none;
     border:none;
     font-size:3em;
-    border-radius: 6.25em;
+    border-radius: 20px;
     cursor:pointer;
+    font-weight: bold;
+}
+
+#submit-button:hover{
+    background-color: black;
 }
 
 #middle-panel-email-password input{

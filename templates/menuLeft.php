@@ -7,10 +7,10 @@
 
 
 
-<aside id="menuLeft">
-    <section id="collaborate-logo">
+<nav id="menuLeft">
+    <header id="collaborate-logo">
         Collaborate
-    </section>
+    </header>
 
     <section id="user-section">
         <div id="profile-picture" style="background-image: url('static/images/john.jpg')"></div>
@@ -19,7 +19,7 @@
 
         <a href="#">
             <div id="myPanel">
-                My panel
+                My Panel
             </div>
         </a>
 
@@ -64,4 +64,4 @@
 
 
     </ul>
-</aside>
+</nav>
