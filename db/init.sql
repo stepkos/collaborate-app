@@ -41,7 +41,7 @@ CREATE TABLE Media (
 CREATE TABLE Users_Media (
   id_user int NOT NULL,
   id_media int NOT NULL,
-  link VARCHAR(50) NOT NULL
+  link VARCHAR(90) NOT NULL
 );
 
 
@@ -222,15 +222,16 @@ CREATE PROCEDURE insert_new_user (IN email1 varchar(50), IN name1 varchar(20), I
 delimiter ; 
 
 
+drop PROCEDURE if exists insert_further_user_data;
 delimiter //
-CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN description1 TEXT, IN profile_picture1 blob, IN email_changed varchar(50), IN password_changed varchar(30), IN media_names TEXT, IN links_to_media TEXT, IN technology_list TEXT)
+CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN description1 TEXT, IN email_changed varchar(50), IN password_changed varchar(30), IN media_names TEXT, IN links_to_media TEXT, IN technology_list TEXT)
     BEGIN
 
         SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
         START TRANSACTION;
 
 
-            UPDATE users SET description=description1, profile_picture=profile_picture1 WHERE id=id_user_inserting;
+            UPDATE users SET description=description1 WHERE id=id_user_inserting;
 
             IF email_changed IS NOT NULL THEN
                 UPDATE users set email=email1 WHERE id=id_user_inserting;
@@ -254,7 +255,7 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
 
                     set @help = (select id from technology where name=@_value);
 
-                    INSERT INTO USERS_technology(id_technology,id_user)
+                    INSERT INTO users_technology(id_technology,id_user)
                     values(@help,id_user_inserting); 
                 
                     SET technology_list = INSERT(technology_list,1,@_nextlen + 1,'');
@@ -266,7 +267,7 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
 
             iterator:LOOP
 
-                    IF CHAR_LENGTH(TRIM(media_names)) = 0 OR media_names IS NULL THEN
+                    IF CHAR_LENGTH(TRIM(media_names)) = 0 OR media_names IS NULL OR CHAR_LENGTH(TRIM(links_to_media)) = 0 OR links_to_media IS NULL THEN
                         LEAVE iterator;
                     END IF;
 
@@ -282,13 +283,13 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
                     SET @_value = TRIM(@_next);
                     SET @_value1 = TRIM(@_next1);
 
-                    set @help = (select id from technology where name=@_value);
+                    set @help = (select id from media where name=@_value);
 
-                    INSERT INTO users_media(id_technology,id_user, link)
+                    INSERT INTO users_media(id_media,id_user, link)
                     values(@help,id_user_inserting, @_value1); 
                 
-                    SET technology_list = INSERT(media_names,1,@_nextlen + 1,'');
-                    SET technology_list = INSERT(links_to_media,1,@_nextlen1 + 1,'');
+                    SET media_names = INSERT(media_names,1,@_nextlen + 1,'');
+                    SET links_to_media = INSERT(links_to_media,1,@_nextlen1 + 1,'');
 
                 END LOOP;
 
@@ -304,9 +305,44 @@ delimiter ;
 
 
 
+drop procedure if exists test_loop;
+delimiter //
+CREATE PROCEDURE test_loop(IN id_user_inserting INT, IN media_names varchar(255), IN links_to_media varchar(255))
+    BEGIN
+
+        SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+        START TRANSACTION;
+
+
+             iterator:LOOP
+
+                    IF CHAR_LENGTH(TRIM(media_names)) = 0 OR media_names IS NULL THEN
+                        LEAVE iterator;
+                    END IF;
+
+                    SET @_next = SUBSTRING_INDEX(media_names,',',1);
+                    SET @_nextlen = CHAR_LENGTH(@_next);
+
+                    SET @_value = TRIM(@_next);
+
+                    
+
+                    INSERT INTO users_media(id_user,id_media,link)
+                    values(1,1,"https:/sztywniutkokurwa"); 
+                
+                    SET media_names = INSERT(media_names,1,@_nextlen + 1,'');
+
+                END LOOP;
 
 
 
+        COMMIT;
+    END //
+
+
+delimiter ;
+
+--SET links_to_media = INSERT(links_to_media,1,@_nextlen1 + 1,'');
 
 delimiter //
 CREATE PROCEDURE insert_collaborator (IN id_user_inserting INT, IN id_user_inserted INT, IN id_offert_destination INT)
@@ -467,6 +503,3 @@ GRANT EXECUTE ON PROCEDURE collaborate.insert_collaborator TO 'user'@'localhost'
 
 
 
-
-SELECT users.id, users.name+' '+users.surname as 'fullname', users.email, users.description, users.active, users_media.link, media.name 
-from users inner join users_media on users.id = users_media.id_user;
