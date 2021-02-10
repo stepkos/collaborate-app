@@ -20,4 +20,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-require_once "views/register.php";
+require_once "views/registerView.php";
