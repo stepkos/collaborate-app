@@ -20,6 +20,11 @@ if (isset($url[2]) ) {
 
         case "logout":
             require_once "controllers/logoutController.php";
+            break;
+
+        case "editProfile":
+            require_once "controllers/editProfileController.php";
+            break;
 
         case "home":
             session_start();

@@ -3,21 +3,21 @@
 
 <head>
 
-    <?php require_once "../templates/metadata.php"; ?>
-    <link rel="stylesheet" href="../static/css/changeUserData.css" type="text/css"/>
+    <?php require_once "templates/metadata.php"; ?>
+    <link rel="stylesheet" href="static/css/changeUserData.css" type="text/css"/>
     <title>Document</title>
 
 </head>
 
 
 <body>
-    <?php require_once "../templates/menuLeft.php"; ?>
+    <?php require_once "templates/menuLeft.php"; ?>
 
     <main>
         <form>
             <section id="left-panel-profile">
 
-            <label for="profile-picture-input" id="label-picture"><img src="../static/images/unknown-picture.jpg"/></label>
+            <label for="profile-picture-input" id="label-picture"><img src="static/images/unknown-picture.jpg"/></label>
             <input type="file" alt="Profile picture input" id="profile-picture-input">
 
             <div id="description-holder">

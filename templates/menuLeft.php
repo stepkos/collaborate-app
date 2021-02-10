@@ -1,6 +1,6 @@
 <style>
     <?php
-        require_once("../static/css/menuLeft.css");
+        require_once("static/css/menuLeft.css");
     ?>
 </style>
 
@@ -13,7 +13,7 @@
     </section>
 
     <section id="user-section">
-        <div id="profile-picture" style="background-image: url('../static/images/john.jpg')"></div>
+        <div id="profile-picture" style="background-image: url('static/images/john.jpg')"></div>
 
         <h1 id="user-name-text">John Doe</h1>
 
