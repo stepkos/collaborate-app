@@ -27,8 +27,9 @@ CREATE TABLE Users (
 
 CREATE TABLE Offert (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  category_id int NOT NULL,
   name varchar(60) NOT NULL,
-  owner_id int,
+  owner_id int NOT NULL,
   description TEXT NOT NULL,
   picture blob
 );
@@ -72,10 +73,7 @@ CREATE TABLE collabolators_Offert (
   id_offert int NOT NULL
 );
 
-CREATE TABLE Offert_Category (
-  id_offert int NOT NULL,
-  id_category int NOT NULL
-);
+
 
 CREATE TABLE Offert_Technology (
   id_technology int NOT NULL,
@@ -122,13 +120,11 @@ ALTER TABLE Offert_Technology ADD FOREIGN KEY (id_offert) REFERENCES Offert(id) 
 
 ALTER TABLE Offert ADD FOREIGN KEY (owner_id) REFERENCES Users(id);
 
-ALTER TABLE Offert_Category ADD FOREIGN KEY (id_offert) REFERENCES Offert (id) ON DELETE CASCADE;
-
-ALTER TABLE Offert_category ADD FOREIGN KEY (id_category) REFERENCES Project_category (id);
-
 ALTER TABLE Users_Media ADD FOREIGN KEY (id_user) REFERENCES Users (id) ON DELETE CASCADE;
 
 ALTER TABLE Users_Media ADD FOREIGN KEY (id_media) REFERENCES Media (id);
+
+ALTER TABLE Offert ADD FOREIGN KEY (category_id) REFERENCES Project_category(id);
 
 
 
@@ -419,19 +415,13 @@ CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name V
 
                 SET @category_id = (SELECT id FROM project_category WHERE name=category_name);
                 
-                
-                INSERT INTO offert(name, description, owner_id) VALUES 
-                (offert_name, offert_description, id_user_inserting);
-                
 
-
-                SET @current_id_offert = (SELECT max(id) FROM offert);
-                IF @category_id IS NOT NULL THEN
-                    INSERT INTO offert_category(id_offert, id_category) VALUES
-                    (@current_id_offert, @category_id);
+                IF @category_id IS NULL THEN
+                    INSERT INTO offert(name, description, owner_id, category_id) VALUES 
+                    (offert_name, offert_description, id_user_inserting, 6);
                 ELSE
-                    INSERT INTO offert_category(id_offert, id_category) VALUES
-                    (@current_id_offert, 6);
+                    INSERT INTO offert(name, description, owner_id, category_id) VALUES 
+                    (offert_name, offert_description, id_user_inserting, @category_id);
                 END IF;
 
                 
