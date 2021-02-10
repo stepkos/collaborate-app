@@ -26,6 +26,10 @@ if (isset($url[2]) ) {
             require_once "controllers/editProfileController.php";
             break;
 
+        case "userPanel":
+            require_once "controllers/userPanelController.php";
+            break;
+
         case "home":
             session_start();
             echo "YOU HAVE ARLEADY LOGIN, Your user id is: ".$_SESSION['user_id'];
