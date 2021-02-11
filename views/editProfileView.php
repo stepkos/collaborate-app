@@ -37,14 +37,13 @@
                     require_once "models/editProfileModel.php";
 
                     foreach($technologies as $tech) {
-
-                        $active = 'false';
+                        $active = '';
                         if ($tech['id'] != null) {
-                            $active = 'true';
+                            $active = 'checked=true';
                         }
 
                         echo '
-                            <input type="checkbox" class="technology-checkbox" id='.$tech['name'].' value="'.$tech['name'].'" name="'.$tech['name'].'" checked="'.$active.'">
+                            <input type="checkbox" class="technology-checkbox" id='.$tech['name'].' value="'.$tech['name'].'" name="'.$tech['name'].'" '.$active.' >
                             <label for="'.$tech['name'].'" class="technology-div" style="background-color: '.$tech['color'].';">
                                 <span style="z-index:2;">'.$tech['name'].'</span>
                             </label>
