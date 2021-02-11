@@ -9,6 +9,11 @@ class User {
         $query->bindValue(':s', $_SESSION['form_surname'], PDO::PARAM_STR);
         $query->bindValue(':p', $_SESSION['form_password'], PDO::PARAM_STR);
         $query->execute();
+        
+        unset($_SESSION['form_email']);
+        unset($_SESSION['form_password']);
+        unset($_SESSION['form_name']);
+        unset($_SESSION['form_surname']);
     }
     
     public static function login() {
@@ -22,9 +27,20 @@ class User {
 
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_name'] = $user['name'];
+            $_SESSION['user_surname'] = $user['surname'];
+            // $_SESSION['user_profile_picture'] = $user['profile_picture'];
+            $_SESSION['user_active'] = $user['active'];
+            $_SESSION['user_premium'] = $user['premium'];
+            $_SESSION['user_premium'] = $user['email'];
+            $_SESSION['user_description'] = $user['description'];
 
             // unset validate errors sesstion valiables
             unset($_SESSION['form_error_email']);
+            unset($_SESSION['form_email']);
+            unset($_SESSION['form_password']);
+            unset($_SESSION['form_name']);
+            unset($_SESSION['form_surname']);
 
             // UNSET OTHER FORM SESSION VARIABLES
         }
