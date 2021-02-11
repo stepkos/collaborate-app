@@ -403,6 +403,8 @@ CREATE PROCEDURE insert_match (IN id_user_inserted INT, IN id_offert1 INT)
 delimiter ;
 
 
+
+
 delimiter //
 CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name VARCHAR(20), IN offert_name VARCHAR(60), IN offert_description TEXT, IN technology_list TEXT)
        BEGIN
@@ -414,9 +416,6 @@ CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name V
 
                 
 
-                IF @current_id_offert IS NULL THEN
-                    SET @current_id_offert = 0;
-                END IF;
 
                 SET @category_id = (SELECT id FROM project_category WHERE name=category_name);
                 
@@ -430,6 +429,9 @@ CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name V
                 END IF;
 
                 
+                SET @current_id_offert = (SELECT LAST_INSERT_ID());
+
+
                 iterator:LOOP
 
                     IF CHAR_LENGTH(TRIM(technology_list)) = 0 OR technology_list IS NULL THEN
