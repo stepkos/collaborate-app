@@ -9,7 +9,7 @@ class User {
         $query->bindValue(':s', $_SESSION['form_surname'], PDO::PARAM_STR);
         $query->bindValue(':p', $_SESSION['form_password'], PDO::PARAM_STR);
         $query->execute();
-        
+
         unset($_SESSION['form_email']);
         unset($_SESSION['form_password']);
         unset($_SESSION['form_name']);
@@ -32,7 +32,7 @@ class User {
             // $_SESSION['user_profile_picture'] = $user['profile_picture'];
             $_SESSION['user_active'] = $user['active'];
             $_SESSION['user_premium'] = $user['premium'];
-            $_SESSION['user_premium'] = $user['email'];
+            $_SESSION['user_email'] = $user['email'];
             $_SESSION['user_description'] = $user['description'];
 
             // unset validate errors sesstion valiables

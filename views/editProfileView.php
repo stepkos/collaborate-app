@@ -21,7 +21,7 @@
             <input type="file" alt="Profile picture input" id="profile-picture-input" name="profile_picture">
 
             <div id="description-holder">
-                <textarea name="description" placeholder="Your profile description..." cols="30" rows="10"></textarea>
+                <textarea name="description" placeholder="Your profile description..." cols="30" rows="10"><?= $_SESSION['user_description'] ?></textarea>
             </div>
             
             </section>
@@ -59,7 +59,7 @@
             <section id="middle-panel-email-password">
 
                 <label for="email-change">Change email</label>
-                <input type="email" id="email-change" name="email">
+                <input type="email" id="email-change" name="email" value="<?= $_SESSION['user_email'] ?>">
 
                 <label for="password-change">Change password</label>
                 <input type="password" id="password-change" name="password">
