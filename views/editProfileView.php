@@ -18,10 +18,10 @@
             <section id="left-panel-profile">
 
             <label for="profile-picture-input" id="label-picture"><img src="static/images/unknown-picture.jpg"/></label>
-            <input type="file" alt="Profile picture input" id="profile-picture-input">
+            <input type="file" alt="Profile picture input" id="profile-picture-input" name="profile_picture">
 
             <div id="description-holder">
-                <textarea placeholder="Your profile description..." cols="30" rows="10"></textarea>
+                <textarea name="description" placeholder="Your profile description..." cols="30" rows="10"></textarea>
             </div>
             
             </section>
@@ -33,47 +33,25 @@
 
                 <div id="technologies-holder">
 
-                    
-                    <input type="checkbox" class="technology-checkbox" id="Node.js" value="Node.js" name="Node.js">
-                    <label for="Node.js" class="technology-div" style="background-color:lime;">
-                        <span style="z-index:2;">Node.js</span>
-                    </label>
+                <?php
+                    require_once "models/editProfileModel.php";
 
+                    foreach($technologies as $tech) {
 
-                    <input type="checkbox" class="technology-checkbox" id="HTML" value="HTML" name="HTML" checked="true">
-                    <label for="HTML" class="technology-div" style="background-color:orange;">
-                        <span style="z-index:2;">HTML</span>
-                    </label>
+                        $active = 'false';                        
+                        if ($tech['id'] != null) {
+                            $active = 'true';
+                        }
 
-                    <input type="checkbox" class="technology-checkbox" id="CSS" value="CSS" name="CSS" checked="true">
-                    <label for="CSS" class="technology-div" style="background-color:blue;">
-                        <span style="z-index:2;">CSS</span>
-                    </label>
+                        echo '
+                            <input type="checkbox" class="technology-checkbox" value="'.$tech['name'].'" name="'.$tech['name'].'" checked="'.$active.'">
+                            <label for="'.$tech['name'].'" class="technology-div" style="background-color: '.$tech['color'].';">
+                                <span style="z-index:2;">'.$tech['name'].'</span>
+                            </label>
+                        ';
+                    }
 
-                    <input type="checkbox" class="technology-checkbox" id="Javascript" value="Javascript" name="Javascript">
-                    <label for="Javascript" class="technology-div" style="background-color:yellow;">
-                        <span style="z-index:2;">Javascript</span>
-                    </label>
-
-                    <input type="checkbox" class="technology-checkbox" id="PHP" value="PHP" name="PHP">
-                    <label for="PHP" class="technology-div" style="background-color:orange;">
-                        <span style="z-index:2;">PHP</span>
-                    </label>
-
-                    <input type="checkbox" class="technology-checkbox" id="Vue.js" value="Vue.js" name="Vue.js" checked="true">
-                    <label for="Vue.js" class="technology-div" style="background-color:green;">
-                        <span style="z-index:2;">Vue.js</span>
-                    </label>
-
-                    <input type="checkbox" class="technology-checkbox" id="C#" value="C#" name="C#" checked="true">
-                    <label for="C#" class="technology-div" style="background-color:purple;">
-                        <span style="z-index:2;">C#</span>
-                    </label>
-
-                    <input type="checkbox" class="technology-checkbox" id="C++" value="C++" name="C++" checked="true">
-                    <label for="C++" class="technology-div" style="background-color:blue;">
-                        <span style="z-index:2;">C++</span>
-                    </label>
+                ?>
 
                     
                 </div>
