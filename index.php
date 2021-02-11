@@ -31,8 +31,7 @@ if (isset($url[2]) ) {
             break;
 
         case "home":
-            session_start();
-            echo "YOU HAVE ARLEADY LOGIN, Your user id is: ".$_SESSION['user_id'];
+            require_once "controllers/homeController.php";
             break;
 
         default:
