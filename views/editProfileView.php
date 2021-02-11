@@ -5,7 +5,7 @@
 
     <?php require_once "templates/metadata.php"; ?>
     <link rel="stylesheet" href="static/css/editProfile.css" type="text/css"/>
-    <title>Document</title>
+    <title>Edit Profile</title>
 
 </head>
 
@@ -34,7 +34,6 @@
                 <div id="technologies-holder">
 
                 <?php
-                    require_once "models/editProfileModel.php";
 
                     foreach($technologies as $tech) {
                         $active = '';
@@ -43,7 +42,7 @@
                         }
 
                         echo '
-                            <input type="checkbox" class="technology-checkbox" id='.$tech['name'].' value="'.$tech['name'].'" name="'.$tech['name'].'" '.$active.' >
+                            <input type="checkbox" class="technology-checkbox" id='.$tech['name'].' value="'.$tech['name'].'" name="technologies[] " '.$active.' >
                             <label for="'.$tech['name'].'" class="technology-div" style="background-color: '.$tech['color'].';">
                                 <span style="z-index:2;">'.$tech['name'].'</span>
                             </label>
@@ -60,32 +59,32 @@
             <section id="middle-panel-email-password">
 
                 <label for="email-change">Change email</label>
-                <input type="email" id="email-change" name="email-change">
+                <input type="email" id="email-change" name="email">
 
                 <label for="password-change">Change password</label>
-                <input type="text" id="password-change" name="password-change">
+                <input type="password" id="password-change" name="password">
 
             </section>
 
             <section id="right-panel-links">
 
                 <label for="link-change-portfolio" class="links-label">Portfolio</label>
-                <input type="text" name="link-change-portfolio">
+                <input type="text" name="link-portfolio" value="<?= (isset($links['Portfolio'])) ? $links['Portfolio'] : '' ?>">
 
                 <label for="link-change-github" class="links-label">Github</label>
-                <input type="text" name="link-change-github">
+                <input type="text" name="link-github" value="<?= (isset($links['Github'])) ? $links['Github'] : '' ?>">
 
                 <label for="link-change-facebook" class="links-label">Facebook</label>
-                <input type="text" name="link-change-facebook">
+                <input type="text" name="link-facebook" value="<?= (isset($links['Facebook'])) ? $links['Facebook'] : '' ?>">
 
                 <label for="link-change-linkedln" class="links-label">Linkedln</label>
-                <input type="text" name="link-change-linkedln">
+                <input type="text" name="link-linkedln" value="<?= (isset($links['Linkedln'])) ? $links['Linkedln'] : '' ?>">
 
                 <label for="link-change-instagram" class="links-label">Instagram</label>
-                <input type="text" name="link-change-instagram">
+                <input type="text" name="link-instagram" value="<?= (isset($links['Instagram'])) ? $links['Instagram'] : '' ?>">
 
                 <label for="link-change-twitter" class="links-label">Twitter</label>
-                <input type="text" name="link-change-twitter">
+                <input type="text" name="link-twitter" value="<?= (isset($links['Twitter'])) ? $links['Twitter'] : '' ?>">
             </section>
 
             <input type="submit" value="Submit" id="submit-button">
