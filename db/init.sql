@@ -14,7 +14,7 @@ CREATE TABLE Users (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name varchar(20) NOT NULL,
   surname varchar(70) NOT NULL,
-  password varchar(30) NOT NULL,
+  password varchar(255) NOT NULL,
   profile_picture blob,
   active boolean DEFAULT false,
   premium boolean DEFAULT false,
@@ -56,7 +56,8 @@ CREATE TABLE Technology (
 CREATE TABLE Project_category (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name varchar(20) UNIQUE NOT NULL,
-  color varchar(7) UNIQUE
+  color varchar(7) UNIQUE,
+  INDEX ID_INDEX(id)
 );
 
 CREATE TABLE Users_Technology (
@@ -127,7 +128,9 @@ ALTER TABLE Users_Media ADD FOREIGN KEY (id_media) REFERENCES Media (id);
 
 ALTER TABLE Offert ADD FOREIGN KEY (category_id) REFERENCES Project_category(id);
 
+ALTER TABLE Chat ADD FOREIGN KEY (id_sender) REFERENCES Users(id);
 
+ALTER TABLE Chat ADD FOREIGN KEY (id_recipent) REFERENCES Users(id);
 
 
 
@@ -229,7 +232,6 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
 
 
             UPDATE users SET description=description1 WHERE id=id_user_inserting;
-            UPDATE users SET active=true WHERE id=id_user_inserting;
 
             IF email_changed IS NOT NULL THEN
                 UPDATE users set email=email1 WHERE id=id_user_inserting;
@@ -237,6 +239,10 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
 
             IF password_changed IS NOT NULL THEN
                 UPDATE users set password=password_changed WHERE id=id_user_inserting;
+            END IF;
+
+             IF description1 IS NOT NULL THEN
+                UPDATE users set description=description1 WHERE id=id_user_inserting;
             END IF;
 
 
@@ -292,7 +298,7 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
                 END LOOP;
 
 
-
+                UPDATE users SET active=true WHERE id=id_user_inserting;
 
 
         COMMIT;
@@ -400,6 +406,8 @@ CREATE PROCEDURE insert_match (IN id_user_inserted INT, IN id_offert1 INT)
 delimiter ;
 
 
+
+
 delimiter //
 CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name VARCHAR(20), IN offert_name VARCHAR(60), IN offert_description TEXT, IN technology_list TEXT)
        BEGIN
@@ -411,9 +419,6 @@ CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name V
 
                 
 
-                IF @current_id_offert IS NULL THEN
-                    SET @current_id_offert = 0;
-                END IF;
 
                 SET @category_id = (SELECT id FROM project_category WHERE name=category_name);
                 
@@ -427,6 +432,9 @@ CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name V
                 END IF;
 
                 
+                SET @current_id_offert = (SELECT LAST_INSERT_ID());
+
+
                 iterator:LOOP
 
                     IF CHAR_LENGTH(TRIM(technology_list)) = 0 OR technology_list IS NULL THEN
