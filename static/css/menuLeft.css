@@ -52,7 +52,7 @@
 }
 #menuLeft #user-section #profile-picture img{
     width:100%;
-     overflow:hidden;
+    overflow:hidden;
     border-radius:50%; 
 }
 #menuLeft #user-section #user-name-text{
@@ -79,25 +79,31 @@
 #menuLeft .menu-option{
     color:white;
     width:100%;
-    height:auto;
+    height: 100px;
     line-height:2;
     font-size:2em;
     font-family: 'Roboto', sans-serif;
     font-style:bold;
-    margin-top:50px;
     display: flex;
     align-items: center;
     cursor:pointer;
     position: relative;
     text-decoration: none;
+    transition: text-shadow .5s ease-in-out;
+}
+#menuLeft .menu-option:hover {
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow:    0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow:         0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 0 10px rgba(232, 212, 31, 1);
 }
 #menuLeft .menu-option::before{
     content:'';
     position:absolute;
-    height:50%;
+    height:33.3%;
     width:10px;
     left:-10px;
-    top:25%;
+    top: 33.3%;
     background-color:white;
     border-top-right-radius:40%;
     border-bottom-right-radius:40%;
