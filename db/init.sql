@@ -20,7 +20,6 @@ CREATE TABLE Users (
   premium boolean DEFAULT false,
   email varchar(50) UNIQUE NOT NULL,
   description TEXT,
-  companies TEXT,
   INDEX LOGIN_INDEX(email,password),
   INDEX ID_INDEX(id)
 );
@@ -228,6 +227,7 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
 
 
             UPDATE users SET description=description1 WHERE id=id_user_inserting;
+            UPDATE users SET active=true WHERE id=id_user_inserting;
 
             IF email_changed IS NOT NULL THEN
                 UPDATE users set email=email1 WHERE id=id_user_inserting;
