@@ -295,7 +295,7 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
                 END LOOP;
 
 
-
+                UPDATE users SET active=true WHERE id=id_user_inserting;
 
 
         COMMIT;
