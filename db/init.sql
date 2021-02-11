@@ -14,7 +14,7 @@ CREATE TABLE Users (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name varchar(20) NOT NULL,
   surname varchar(70) NOT NULL,
-  password varchar(30) NOT NULL,
+  password varchar(255) NOT NULL,
   profile_picture blob,
   active boolean DEFAULT false,
   premium boolean DEFAULT false,
@@ -128,9 +128,9 @@ ALTER TABLE Users_Media ADD FOREIGN KEY (id_media) REFERENCES Media (id);
 
 ALTER TABLE Offert ADD FOREIGN KEY (category_id) REFERENCES Project_category(id);
 
-ALTER TABLE chat ADD FOREIGN KEY (id_sender) REFERENCES Users(id);
+ALTER TABLE Chat ADD FOREIGN KEY (id_sender) REFERENCES Users(id);
 
-ALTER TABLE chat ADD FOREIGN KEY (id_recipent) REFERENCES Users(id);
+ALTER TABLE Chat ADD FOREIGN KEY (id_recipent) REFERENCES Users(id);
 
 
 
