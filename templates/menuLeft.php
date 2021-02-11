@@ -23,7 +23,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="logout">
             <div id="logOut">
                 Log out
             </div>
