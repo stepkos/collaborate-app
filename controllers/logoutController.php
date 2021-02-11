@@ -1,5 +1,5 @@
 <?php
 
-require_once "models/UserModel.php";
+require_once "models/userModel.php";
 User::logout();
 header('Location: login');
