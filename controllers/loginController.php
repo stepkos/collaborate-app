@@ -8,7 +8,7 @@ if (isset($_SESSION['user_id'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    require_once "models/UserModel.php";
+    require_once "models/userModel.php";
     require_once "validators/formValidators.php";
 
     if (FormValidators::login()) {
