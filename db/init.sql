@@ -56,7 +56,8 @@ CREATE TABLE Technology (
 CREATE TABLE Project_category (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name varchar(20) UNIQUE NOT NULL,
-  color varchar(7) UNIQUE
+  color varchar(7) UNIQUE,
+  INDEX ID_INDEX(id)
 );
 
 CREATE TABLE Users_Technology (
@@ -127,7 +128,9 @@ ALTER TABLE Users_Media ADD FOREIGN KEY (id_media) REFERENCES Media (id);
 
 ALTER TABLE Offert ADD FOREIGN KEY (category_id) REFERENCES Project_category(id);
 
+ALTER TABLE chat ADD FOREIGN KEY (id_sender) REFERENCES Users(id);
 
+ALTER TABLE chat ADD FOREIGN KEY (id_recipent) REFERENCES Users(id);
 
 
 
