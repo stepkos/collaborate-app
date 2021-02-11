@@ -61,6 +61,7 @@
     top:20%;
     left:30%;
     font-size:170%;
+    letter-spacing: 1px;
 }
 #menuLeft #user-section #myPanel{
     position: absolute;

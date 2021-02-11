@@ -15,7 +15,7 @@
     <section id="user-section">
         <div id="profile-picture" style="background-image: url('static/images/john.jpg')"></div>
 
-        <h1 id="user-name-text">John Doe</h1>
+        <h1 id="user-name-text"><?= $_SESSION['user_name'].' '.$_SESSION['user_surname'] ?></h1>
 
         <a href="#">
             <div id="myPanel">
