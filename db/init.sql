@@ -35,7 +35,8 @@ CREATE TABLE Offert (
 
 CREATE TABLE Media (
   id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(20) NOT NULL UNIQUE
+  name VARCHAR(20) NOT NULL UNIQUE,
+  INDEX ID_INDEX(id)
 );
 
 CREATE TABLE Users_Media (
@@ -48,7 +49,8 @@ CREATE TABLE Users_Media (
 CREATE TABLE Technology (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name varchar(30) UNIQUE NOT NULL,
-  color varchar(7) UNIQUE
+  color varchar(7) UNIQUE,
+  INDEX ID_INDEX(id)
 );
 
 CREATE TABLE Project_category (
@@ -338,7 +340,7 @@ CREATE PROCEDURE test_loop(IN id_user_inserting INT, IN media_names varchar(255)
 
 delimiter ;
 
---SET links_to_media = INSERT(links_to_media,1,@_nextlen1 + 1,'');
+
 
 delimiter //
 CREATE PROCEDURE insert_collaborator (IN id_user_inserting INT, IN id_user_inserted INT, IN id_offert_destination INT)
