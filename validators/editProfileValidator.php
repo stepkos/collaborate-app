@@ -14,40 +14,53 @@ function editProfileValidator() {
         foreach($_POST['technologies'] as $tech)
             $_SESSION['form_technologies'] .= $tech.',';
 
-    // NO VALUE!
+    $_SESSION['form_email'] = null;
     if (isset($_POST['email']))
         $_SESSION['form_email'] = $_POST['email'];
   
     // NO VALUE!
+    $_SESSION['form_password'] = null;
     if (isset($_POST['password']))
         $_SESSION['form_password'] = $_POST['password'];
 
     //-------------------------------//
     //            LINKS              //
     //-------------------------------//
-    $_SESSION['form_link_portfolio'] = '';
-    if (isset($_POST['link-portfolio']))
-        $_SESSION['form_link_portfolio'] = $_POST['link-portfolio'];
+    $_SESSION['link_names'] = '';
+    $_SESSION['link_bodies'] = '';
+    
+    if (isset($_POST['link-portfolio'])) {
+        $_SESSION['link_bodies'] .= $_POST['link-portfolio'].',';
+        $_SESSION['link_names'] .= 'Portfolio,';
+    }
 
-    $_SESSION['form_link_github'] = '';
-    if (isset($_POST['link-github']))
-        $_SESSION['form_link_github'] = $_POST['link-github'];
+    if (isset($_POST['link-github'])) {
+        $_SESSION['link_bodies'] .= $_POST['link-github'].',';
+        $_SESSION['link_names'] .= 'Github,';
+    }
 
-    $_SESSION['form_link_facebook'] = '';
-    if (isset($_POST['link-facebook']))
-        $_SESSION['form_link_facebook'] = $_POST['link-facebook'];
+    if (isset($_POST['link-facebook'])) {
+        $_SESSION['link_bodies'] .= $_POST['link-facebook'].',';
+        $_SESSION['link_names'] .= 'Facebook,';
+    }
 
-    $_SESSION['form_link_linkedln'] = '';
-    if (isset($_POST['link-linkedln']))
-        $_SESSION['form_link_linkedln'] = $_POST['link-linkedln'];
+    if (isset($_POST['link-linkedln'])) {
+        $_SESSION['link_bodies'] .= $_POST['link-linkedln'].',';
+        $_SESSION['link_names'] .= 'Linkedln,';
+    }
 
-    $_SESSION['form_link_instagram'] = '';
-    if (isset($_POST['link-instagram']))
-        $_SESSION['form_link_instagram'] = $_POST['link-instagram'];
+    if (isset($_POST['link-instagram'])) {
+        $_SESSION['link_bodies'] .= $_POST['link-instagram'].',';
+        $_SESSION['link_names'] .= 'Instagram,';
+    }
 
-    $_SESSION['form_link_twitter'] = '';
-    if (isset($_POST['link-twitter']))
-        $_SESSION['form_link_twitter'] = $_POST['link-twitter'];
+    if (isset($_POST['link-twitter'])) {
+        $_SESSION['link_bodies'] .= $_POST['link-twitter'].',';
+        $_SESSION['link_names'] .= 'Twitter,';
+    }
+
+    $_SESSION['link_names'] = substr($_SESSION['link_names'], 0, -1);
+    $_SESSION['link_bodies'] = substr( $_SESSION['link_bodies'], 0, -1);
 
     return true;
 }

@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (editProfileValidator()) {
         
-        // User::login();
+        require_once 'models/editProfileModelPOST.php';
         
         header('Location: home');
         exit();
