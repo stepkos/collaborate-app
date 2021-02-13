@@ -234,7 +234,7 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
             UPDATE users SET description=description1 WHERE id=id_user_inserting;
 
             IF email_changed IS NOT NULL THEN
-                UPDATE users set email=email1 WHERE id=id_user_inserting;
+                UPDATE users set email=email_changed WHERE id=id_user_inserting;
             END IF;
 
             IF password_changed IS NOT NULL THEN
