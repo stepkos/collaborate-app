@@ -14,12 +14,12 @@ function editProfileValidator() {
         foreach($_POST['technologies'] as $tech)
             $_SESSION['form_technologies'] .= $tech.',';
 
-    $_SESSION['form_email'] = null;
+    $_SESSION['form_email'] = 'NULL';
     if (isset($_POST['email']))
         $_SESSION['form_email'] = $_POST['email'];
   
     // NO VALUE!
-    $_SESSION['form_password'] = null;
+    $_SESSION['form_password'] = 'NULL';
     if (isset($_POST['password']))
         $_SESSION['form_password'] = $_POST['password'];
 
