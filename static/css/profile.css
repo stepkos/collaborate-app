@@ -1,0 +1,11 @@
+main{
+    width:76%;
+    height:100vh;
+    background-color:white;
+    position: relative;
+    margin-left:23%;
+    float: right;
+    z-index:1;
+}
+
+

@@ -100,6 +100,7 @@ main{
     margin-top: 25px;
     margin-left:5%;
     overflow-x: scroll;
+    overflow-y:hidden;
     display: flex;
     align-items: center;
 }
@@ -198,7 +199,7 @@ main{
     outline:none;
     border-radius: 6.25em;
     border: none;
-    padding: 5px 0;
+   
     padding-left:10px;
     font-size:1.1em;
     background-color: #D4D4D4;

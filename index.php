@@ -34,6 +34,11 @@ if (isset($url[2]) ) {
             require_once "controllers/homeController.php";
             break;
 
+
+        case "profile": //temporary for development purposes!!!!!!!!!!!!
+            require_once "controllers/profileController.php";
+            break;
+
         default:
             echo "Error 404";
     }
