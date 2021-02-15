@@ -5,7 +5,6 @@
     height:100vh;
     flex-direction: column;
     align-items: center;
-    padding-top:2%;
 }
 
 .holder:nth-child(1){
@@ -35,7 +34,8 @@ main{
 .user_photo img{
     width: 20vh;
     height: 20vh;
-    border-radius:100px
+    border-radius:100px;
+    margin-top:3%;
 }
 
 .name {
@@ -85,6 +85,8 @@ main{
     width:50%;
     border-radius: 14px;
     padding: 3%;
+    border:none;
+    outline:none;
 }
 
 #button2 {
@@ -92,6 +94,8 @@ main{
     width:50%;
     border-radius: 14px;
     padding: 3%;
+    border:none;
+    outline:none;
 }
 
 /* Project holder */
@@ -103,6 +107,7 @@ main{
     height: 80vh;
     width: 90%;
     overflow-y: scroll;
+    margin-top:3%;
 }
 
 .project{
@@ -177,4 +182,5 @@ main{
     font-size:4vh;
     background: #72D543;
     border-radius: 142px;
+    color:white;
 }

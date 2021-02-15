@@ -80,6 +80,53 @@
                 </div>
 
                 <h1 id="projects-h1">My Projects</h1>
+
+                <section id="projects-holder">
+
+                    <a href="#" style="text-decoration:none">
+                        <div class="project-card">
+                            <div class="project-img-holder" style="background-image:url(static/images/john.png)"></div>
+                            <div class="project-category">Web</div>
+                            <div class="project-bottom-holder">
+                                <h1 class="project-title">
+                                    Hackaton 2069
+                                </h1>
+
+                                <div class="project-tech-holder">
+                                    <div class="project-tech" style="background-color:blue">Django</div>
+                                    <div class="project-tech" style="background-color:orange">HTML</div>
+                                    <div class="project-tech" style="background-color:aqua">CSS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+
+                    <a href="#" style="text-decoration:none">
+                        <div class="project-card">
+                            <div class="project-img-holder" style="background-image:url(static/images/obraz.png)"></div>
+                            <div class="project-category">Desktop</div>
+                            <div class="project-bottom-holder">
+                                <h1 class="project-title">
+                                    Hackaton 3077
+                                </h1>
+
+                                <div class="project-tech-holder">
+                                    <div class="project-tech" style="background-color:blue">Django</div>
+                                    <div class="project-tech" style="background-color:orange">HTML</div>
+                                    <div class="project-tech" style="background-color:aqua">CSS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </section>
+
+
             </section>
         </main>
 
