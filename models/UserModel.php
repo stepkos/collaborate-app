@@ -7,7 +7,8 @@ class User {
         $query->bindValue(':e', $_SESSION['form_email'], PDO::PARAM_STR);
         $query->bindValue(':n', $_SESSION['form_name'], PDO::PARAM_STR);
         $query->bindValue(':s', $_SESSION['form_surname'], PDO::PARAM_STR);
-        $query->bindValue(':p', password_hash($_SESSION['form_password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
+        $query->bindValue(':p', $_SESSION['form_password'], PDO::PARAM_STR);
+        // $query->bindValue(':p', password_hash($_SESSION['form_password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
         $query->execute();
 
         unset($_SESSION['form_email']);
