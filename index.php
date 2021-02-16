@@ -33,7 +33,10 @@ if (isset($url[2]) ) {
         case "home":
             require_once "controllers/homeController.php";
             break;
-
+        
+        case "addProject":
+            require_once "controllers/addProjectController.php";
+            break;
 
         case "profile": //temporary for development purposes!!!!!!!!!!!!
             require_once "controllers/profileController.php";
