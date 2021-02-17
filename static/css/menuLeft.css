@@ -58,9 +58,8 @@
 #menuLeft #user-section #user-name-text{
     font-family: 'Roboto', sans-serif;
     position: absolute;
-    top:20%;
+    top:30%;
     left:30%;
-    font-size:170%;
     letter-spacing: 1px;
 }
 #menuLeft #user-section #myPanel{

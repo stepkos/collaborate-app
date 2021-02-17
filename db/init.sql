@@ -196,7 +196,7 @@ CREATE PROCEDURE login_user (IN email1 varchar(50), IN password1 varchar(30))
         SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
         START TRANSACTION;
 
-            SELECT * FROM users WHERE email=email1 AND password = password1;
+            SELECT id,name,surname,active,premium,email,description FROM users WHERE email=email1 AND password = password1;
 
         COMMIT;
     END//
