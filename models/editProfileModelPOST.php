@@ -12,8 +12,8 @@ $db = require_once "db/connect.php";
 // $query->bindValue(':link_bodies', $_SESSION['link_bodies']);
 // $query->bindValue(':technologies', $_SESSION['form_technologies'], PDO::PARAM_STR);
 $sql = 'CALL insert_further_user_data('.$_SESSION['user_id'].', "'.$_SESSION['form_description'].'", "'.$_SESSION['form_email'].'", '.$_SESSION['form_password'].', "'.$_SESSION['link_names'].'", "'.$_SESSION['link_bodies'].'", "'.$_SESSION['form_technologies'].'")';
-echo $sql;
-exit();
+// echo $sql;
+// exit();
 $db->query($sql);
 // $db->query('call insert_further_user_data(9, "jej jestem janek", NULL, NULL, "Github,Linkedln","https://github.com/,https//linkedln.com", "React,HTML,CSS");');
 
