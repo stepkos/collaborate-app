@@ -16,15 +16,161 @@ main{
 }
 
 #form_holder {
-    width: 80%;
-    height: 95vh;
+    padding: 1%;
+    width: 90%;
+    height: 90vh;
     background-color: white;
     border-radius: 26px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#project_image {
+#project_name {
+    width: 80%;
+    font-size: 3vh;
+}
+
+#project_description {
+    width: 80%;
+    font-size: 2.5vh;
+    padding-bottom: 30vh;
+}
+
+#add_project_form {
     width: 100%;
-    height: 20vh;
-    background-size: cover;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#project_type {
+    font-size: 2.3vh;
+    width: 80%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="submit"] {
+    width: 90%;
+    font-size: 2vh;
+    border: none;
+    padding: 0.5%;
+    background-color: #1D3557;
+    color: #F5F5F5;
+    border-radius: 7px;
+}
+
+.custom_file_upload {
+    display: flex;
+    justify-content: center;
+    background-color: #305CF8;
+    color: #F5F5F5;
+    font-size: 2vh;
+    padding: 2%;
+    border-radius: 10px;
+    width: 90%;
+    cursor: pointer;
+}
+
+#top-panel-technology{
+    width:60%;
+    height:25%;
+    left:33%;
+    top:10%;
+   border-radius: 2.25em;
+    background-color:var(--primary-red-color);
+    box-shadow:1px 3px 13px 5px rgba(0,0,0,0.28);
+    display: flex;
+    flex-direction: column;
+}
+#search-label{
+    margin-top:1%;
+    margin-bottom:1%;
+    font-weight: bold;
+    color:white;
+    margin-left:5%;
+    margin-top:2%;
+    font-size:1.3em;
+}
+#search-input{
+    width:40%;
+    line-height:2;
+    margin-left:4%;
+    outline:none;
+    border-radius: 6.25em;
+    border:1px solid rgb(184, 184, 184);
+    padding-left:10px;
+    font-size:1.1em;
+    margin-left:5%;
+}
+#technologies-holder{
+    width:90%;
+    height:40%;
+    margin-top: 25px;
+    margin-left:5%;
+    overflow-x: scroll;
+    overflow-y:hidden;
+    display: flex;
+    align-items: center;
+}
+#technologies-holder::-webkit-scrollbar {
+   width:10px;
+}
+
+
+#technologies-holder::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2em;
+    
+  }
+  
+  #technologies-holder::-webkit-scrollbar-thumb {
+    background: rgb(212, 212, 212);
+    border-radius: 6.25em;
+  }
+  
+
+
+
+.technology-checkbox{
+    opacity: 0;
+}
+
+#technologies-holder input[type="checkbox"]:checked+label:before {  opacity:0;}
+
+.technology-div:first-child{
+    padding-left:100px;
+}
+
+.technology-div{
+    width:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:15px;
+    color:white;
+    border-radius:1.3em;
+    cursor:pointer;
+    position: relative;
+}
+.technology-div:hover {
+    color: rgb(200, 200, 200);
+}
+.technology-div:before{
+    content:'';
+    position: absolute;
+    width:100%;
+    height:100%;
+    opacity:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:grey;
+    color:white;
+    border-radius:1.3em;
+    cursor:pointer;
+    z-index:1;
 }
