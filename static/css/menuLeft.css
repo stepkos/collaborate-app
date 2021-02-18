@@ -58,7 +58,8 @@
 #menuLeft #user-section #user-name-text{
     font-family: 'Roboto', sans-serif;
     position: absolute;
-    top:30%;
+    top:23%;
+    font-size: 140%;
     left:30%;
     letter-spacing: 1px;
 }
