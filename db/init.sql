@@ -243,6 +243,8 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
             END IF;
 
 
+            DELETE FROM users_technology WHERE id_user=id_user_inserting;
+
             iterator:LOOP
 
                     IF CHAR_LENGTH(TRIM(technology_list)) = 0 OR technology_list IS NULL THEN
@@ -265,6 +267,7 @@ CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN descripti
 
 
 
+            DELETE FROM users_media WHERE id_user=id_user_inserting;
 
             iterator:LOOP
 
