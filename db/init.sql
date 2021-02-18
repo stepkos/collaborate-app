@@ -309,42 +309,6 @@ delimiter ;
 
 
 
-drop procedure if exists test_loop;
-delimiter //
-CREATE PROCEDURE test_loop(IN id_user_inserting INT, IN media_names varchar(255), IN links_to_media varchar(255))
-    BEGIN
-
-        SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
-        START TRANSACTION;
-
-
-             iterator:LOOP
-
-                    IF CHAR_LENGTH(TRIM(media_names)) = 0 OR media_names IS NULL THEN
-                        LEAVE iterator;
-                    END IF;
-
-                    SET @_next = SUBSTRING_INDEX(media_names,',',1);
-                    SET @_nextlen = CHAR_LENGTH(@_next);
-
-                    SET @_value = TRIM(@_next);
-
-                    
-
-                    INSERT INTO users_media(id_user,id_media,link)
-                    values(1,1,"https:/sztywniutkokurwa"); 
-                
-                    SET media_names = INSERT(media_names,1,@_nextlen + 1,'');
-
-                END LOOP;
-
-
-
-        COMMIT;
-    END //
-
-
-delimiter ;
 
 
 
@@ -409,7 +373,7 @@ delimiter ;
 
 
 delimiter //
-CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name VARCHAR(20), IN offert_name VARCHAR(60), IN offert_description TEXT, IN technology_list TEXT)
+CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name VARCHAR(20), IN offert_name VARCHAR(60), IN offert_picture1 blob, IN offert_description TEXT, IN technology_list TEXT)
        BEGIN
 
             
@@ -427,8 +391,8 @@ CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name V
                     INSERT INTO offert(name, description, owner_id, category_id) VALUES 
                     (offert_name, offert_description, id_user_inserting, 6);
                 ELSE
-                    INSERT INTO offert(name, description, owner_id, category_id) VALUES 
-                    (offert_name, offert_description, id_user_inserting, @category_id);
+                    INSERT INTO offert(name, description, owner_id, category_id, picture) VALUES 
+                    (offert_name, offert_description, id_user_inserting, @category_id, offert_picture1);
                 END IF;
 
                 
