@@ -44,10 +44,11 @@ class User {
             unset($_SESSION['form_surname']);
 
             // UNSET OTHER FORM SESSION VARIABLES
+            return true;
         }
-        else {
-            $_SESSION['form_error_email'] = "Incorrect login or password!";
-        }
+        
+        $_SESSION['form_error_email'] = "Incorrect login or password!";
+        return false;
                
     }
 

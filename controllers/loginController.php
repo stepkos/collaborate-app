@@ -13,10 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (FormValidators::login()) {
 
-        User::login();
-
-        header('Location: home');
-        exit();
+        if (User::login()) {
+            header('Location: home');
+            exit();
+        }
     }
 }
 
