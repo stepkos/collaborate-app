@@ -162,10 +162,9 @@ main{
     float:left;
     height:100%;
     width:75%;
-    display: flex;
-    align-items:center;
-    justify-content: center;
+    
     position: relative;
+    overflow: hidden;
 }
 
 .project-card-find{
@@ -177,29 +176,37 @@ main{
     box-shadow:         0px 0px 11px 0px rgba(50, 50, 50, 0.4);
     position: absolute;
     border-radius:3rem;
+    top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+    
 
 }
+/*.project-card-find:hover{
+    transform: translateX(-10%) translateY(-10%);
+}*/
 
 
-.accept-button{
+
+
+#swipe-information{
+    transform: translateX(-50%) translateY(-50%);
+    z-index:99999;
     width:100px;
     height:100px;
-    background-color: rgb(106, 253, 106);
-    border-radius: 50%;
-    z-index:2;
-    position: inherit;
-    top:40%;
-    right:1%;
-    cursor: pointer;
+    /*background-color:rgb(130, 253, 130);*/
+    /*background-color: rgb(255, 100, 100);*/
+    border-radius:50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   opacity:0;
 }
-.decline-button{
-    width:100px;
-    height:100px;
-    background-color: rgb(253, 106, 106);
-    border-radius: 50%;
-    z-index:2;
-    position: inherit;
-    top:40%;
-    left:1%;
-    cursor: pointer;
+#swipe-information span{
+    color:white;
+    font-size:30px;
+    
 }
