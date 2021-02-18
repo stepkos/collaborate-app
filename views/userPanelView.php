@@ -48,8 +48,8 @@
             </div>
 
             <div class="buttons">
-                <a href="#"><button id="button1">Display profile</button></a>
-                <a href="/collaborate/editProfile"><button id="button2">Edit profile</button></a>
+                <a href="profile"><button id="button1">Display profillie</button></a>
+                <a href="editProfile"><button id="button2">Edit profile</button></a>
             </div>
         </div>
 
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" id="add_button"><button>+</button></a>
+                <a href="addProject" id="add_button"><button>+</button></a>
             </div>
         </div>
     </main>

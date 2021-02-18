@@ -17,7 +17,7 @@
 
         <h1 id="user-name-text"><?= $_SESSION['user_name'].' '.$_SESSION['user_surname'] ?></h1>
 
-        <a href="#">
+        <a href="userPanel">
             <div id="myPanel">
                 My Panel
             </div>
@@ -34,28 +34,28 @@
 
     <ul id="option-list">
 
-        <a href="#">
+        <a href="home">
             <li class="menu-option">
                 <span class="material-icons option-icons"> home</span>
                 <span class="option-text">Home</span>
             </li>
         </a>
         
-        <a href="#">
+        <a href="chat">
             <li class="menu-option">
                 <span class="material-icons option-icons">chat</span>
                 <span class="option-text">Chat</span>
             </li>
         </a>
 
-        <a href="#">
+        <a href="settings">
             <li class="menu-option">
                 <span class="material-icons option-icons">settings_suggest</span>
                 <span class="option-text">Settings</span>
             </li>
         </a>
 
-        <a href="#">
+        <a href="about">
             <li class="menu-option">
                 <span class="material-icons option-icons">alternate_email</span>
                 <span class="option-text">About</span>
