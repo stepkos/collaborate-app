@@ -8,7 +8,19 @@ $db = require_once "db/connect.php";
 
 // POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   require_once "";
+   require_once "validators/addProjectValidator.php";
+
+   if (addProjectValidator()) {
+    $user_id = $_SESSION['user_id'];
+    $projectPhoto = base64_encode(file_get_contents($_FILES['project_photo']['tmp_name']));
+    $projectTechnologies = $_SESSION['project_technologies'];
+    $projectName = $_SESSION['project_name'];
+    $projectTarget = $_SESSION['project_target'];
+    $projectDescription = $_SESSION['project_description'];
+    $sql = "CALL insert_new_offert($user_id,'$projectTarget','$projectName','$projectPhoto','$projectDescription','$projectTechnologies');";
+    $db->query($sql);
+    header("Location: userPanel");
+   }
 }
 
 // GET
