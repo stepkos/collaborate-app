@@ -7,9 +7,6 @@ SET NAMES utf8mb4;
 
 
 
-
-
-
 CREATE TABLE Users (
   id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name varchar(20) NOT NULL,

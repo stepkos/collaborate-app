@@ -13,10 +13,54 @@
 
     <main>
         <div id="form_holder">
-            <div id="project_image" style="background-image: url('static/images/obraz.png')">
-                <div id="project_type">Web</div>
-            </div>
+            <form method="POST" id="add_project_form">
+                <label class="custom_file_upload">
+                    <input type="file"/>
+                    <p>Press to upload project's photo</p>
+                </label>
 
+                <input type="text" id="project_name" placeholder="Project's name" /> 
+
+                <section id="top-panel-technology">
+
+                <label for="search-technology" id="search-label">Your technologies</label>
+                <input type="text" name="search-technology" id="search-input" placeholder="Search...">
+
+                <div id="technologies-holder">
+
+                <?php
+
+                    foreach($technologies as $tech) {
+                        $active = '';
+                        if ($tech['id'] != null) {
+                            $active = 'checked=true';
+                        }
+
+                        echo '
+                            <input type="checkbox" class="technology-checkbox" id='.$tech['name'].' value="'.$tech['name'].'" name="technologies[] " '.$active.' >
+                            <label for="'.$tech['name'].'" class="technology-div" style="background-color: '.$tech['color'].';">
+                                <span style="z-index:2;">'.$tech['name'].'</span>
+                            </label>
+                        ';
+                    }
+
+                ?>
+
+                    
+                </div>
+
+                </section>
+
+                <select id="project_type">
+                    <option value="web">Web</option>
+                    <option value="desktop">Desktop</option>
+                    <option value="mobile">Mobile</option>
+                </select>
+
+                <input type="textarea" id="project_description" placeholder="Project's description" />
+
+                <input type="submit" />
+            </form>
         </div>
     </main>
 </body>
