@@ -4,6 +4,7 @@
 
     <?php require_once "templates/metadata.php"; ?>
     <link rel="stylesheet" href="static/css/home.css" type="text/css"/>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   
 
     <title>Home</title>
@@ -12,6 +13,8 @@
 <body>
 
         <?php require_once "templates/menuLeft.php"; ?>
+
+        
 
         <main>
             
@@ -104,15 +107,18 @@
 
            <section id="right-holder">
 
-
-                <div class="project-card-find" style="z-index:2;">
-                    <div class="project-img-holder" style="background-image:url(static/images/obraz.png)"></div>
-                    <div class="accept-button"></div>
-                    <div class="decline-button"></div>
-                    
+                <div id="swipe-information">
+                    <span class="material-icons">
+                        thumb_up
+                    </span>
                 </div>
 
-                <div class="project-card-find" style="z-index:1">
+
+                <div class="project-card-find" style="z-index:1;" >
+                    <div class="project-img-holder" style="background-image:url(static/images/obraz.png)"></div>
+                </div>
+
+                <div class="project-card-find" style="z-index:2" id="32">
                     <div class="project-img-holder" style="background-image:url(static/images/john.png)"></div>
                 </div>
 
@@ -175,7 +181,8 @@
         </main>
 
         <script src="static/javascript/jquery.js" language="javascript"></script>
-            <script src="static/javascript/swipe.js" language="javascript"></script>
+        <script src="static/javascript/hammer.js" language="javascript"></script>
+        <script src="static/javascript/swipe.js" language="javascript"></script>
 </body>
  
 
