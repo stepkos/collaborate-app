@@ -7,7 +7,16 @@ main{
     float: right;
     padding:0;
 }
-
+.project-card-find a{
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius:3rem;
+}
 
 #left-panel{
     width:25%;
@@ -182,9 +191,21 @@ main{
     
 
 }
-/*.project-card-find:hover{
-    transform: translateX(-10%) translateY(-10%);
-}*/
+.project-bottom-holder-find{
+    width:100%;
+    height:30%;
+    border-bottom-left-radius:3rem;
+    border-bottom-right-radius:3rem;
+}
+.project-card-find .project-title{
+    font-size:2em;
+}
+.project-card-find .project-tech-holder{
+    margin-top:50px;
+}
+.project-card-find .project-tech{
+    padding:10px;
+}
 
 
 

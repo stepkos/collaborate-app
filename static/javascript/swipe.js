@@ -52,8 +52,8 @@ class Carousel{
       let isDraggingFrom = (e.center.y - bounds.top) > topCard.clientHeight / 2 ? -1 : 1
 
       // calculate new coordinates
-      let posX = e.deltaX + startPosX
-      let posY = e.deltaY + startPosY
+      let posX = e.deltaX  + startPosX 
+      let posY = e.deltaY + startPosY 
 
 
       let propX = e.deltaX / topCard.clientWidth
