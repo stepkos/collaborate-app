@@ -15,7 +15,7 @@
     <main>
         <article>
             <div class="container">
-                <form action="#" method="POST">
+                <form method="POST">
                     <div class="fieldset">
     
                         
