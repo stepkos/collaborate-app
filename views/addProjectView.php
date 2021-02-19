@@ -23,7 +23,7 @@
 
                 <section id="top-panel-technology">
 
-                <label for="search-technology" id="search-label">Your technologies</label>
+                <label for="search-technology" id="search-label">Project technologies</label>
                 <input type="text" name="search-technology" id="search-input" placeholder="Search...">
 
                 <div id="technologies-holder">
