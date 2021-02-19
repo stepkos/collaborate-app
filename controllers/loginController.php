@@ -6,6 +6,8 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 
+require_once "tools/cleanFormErrors.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     require_once "models/userModel.php";

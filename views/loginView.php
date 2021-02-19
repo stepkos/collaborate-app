@@ -39,5 +39,10 @@
         </article>
     </main>
 
+    <script src="static/javascript/error.js"></script>
+    <script>
+        <?= (isset($_SESSION['form_error_email'])) ? 'error("email", "'.$_SESSION['form_error_email'].'");' : '' ?>
+    </script>
+
 </body>
 </html>
