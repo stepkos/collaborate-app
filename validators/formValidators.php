@@ -33,14 +33,22 @@ class FormValidators {
             $validate = false;
         }
 
-        if (isset($_POST['confirm_password']) && $_POST['confirm_password'] != '')
+        if (isset($_POST['confirm_password']) && $_POST['confirm_password'] != '') 
             $_SESSION['form_confirm_password'] = filter_input(INPUT_POST, 'confirm_password');
         else {
             $_SESSION['form_error_confirm_password'] = ' is required';
             $validate = false;
         }
+
+        if (!$validate)
+            return false;
         
-        return $validate;
+        if ($_SESSION['form_password'] != $_SESSION['form_confirm_password']) {
+            $_SESSION['form_error_confirm_password'] = ' passwords are not the same';
+            return false;
+        }
+        return true;
+        
             
     }
     
