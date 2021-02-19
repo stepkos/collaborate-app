@@ -49,11 +49,14 @@
     </main>
 
 
-    <!-- <script src="error.js"></script>
+    <script src="static/javascript/error.js"></script>
     <script>
-        error("name", "This name is already taken")
-        error("confirm_password", "Passwords don't match")
-    </script> -->
+        <?= (isset($_SESSION['form_error_email'])) ? 'error("email", "'.$_SESSION['form_error_email'].'");' : '' ?>
+        <?= (isset($_SESSION['form_error_name'])) ? 'error("name", "'.$_SESSION['form_error_name'].'");' : '' ?>
+        <?= (isset($_SESSION['form_error_surname'])) ? 'error("surname", "'.$_SESSION['form_error_surname'].'");' : '' ?>
+        <?= (isset($_SESSION['form_error_password'])) ? 'error("password", "'.$_SESSION['form_error_password'].'");' : '' ?>
+        <?= (isset($_SESSION['form_error_confirm_password'])) ? 'error("confirm_password", "'.$_SESSION['form_error_confirm_password'].'");' : '' ?>
+    </script>
 
 
 </body>

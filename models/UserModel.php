@@ -12,9 +12,13 @@ class User {
         $query->execute();
 
         unset($_SESSION['form_email']);
-        unset($_SESSION['form_password']);
         unset($_SESSION['form_name']);
         unset($_SESSION['form_surname']);
+        unset($_SESSION['form_password']);
+        unset($_SESSION['form_confirm_password']);
+
+        require_once "tools/cleanFormErrors.php";
+
     }
     
     public static function login() {
@@ -37,11 +41,10 @@ class User {
             $_SESSION['user_description'] = $user['description'];
 
             // unset validate errors sesstion valiables
-            unset($_SESSION['form_error_email']);
             unset($_SESSION['form_email']);
             unset($_SESSION['form_password']);
-            unset($_SESSION['form_name']);
-            unset($_SESSION['form_surname']);
+            
+            require_once "tools/cleanFormErrors.php";
 
             // UNSET OTHER FORM SESSION VARIABLES
             return true;
