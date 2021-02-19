@@ -20,13 +20,16 @@
     
                         
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email"
+                        <?= (isset($_SESSION['form_email'])) ? 'value = "'.$_SESSION['form_email'].'"' : '' ?>>
 
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name">
+                        <input type="text" id="name" name="name"
+                        <?= (isset($_SESSION['form_name'])) ? 'value = "'.$_SESSION['form_name'].'"' : '' ?>>
 
                         <label for="surname">Surname</label>
-                        <input type="text" id="surname" name="surname">
+                        <input type="text" id="surname" name="surname"
+                        <?= (isset($_SESSION['form_surname'])) ? 'value = "'.$_SESSION['form_surname'].'"' : '' ?>>
             
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password">
