@@ -3,6 +3,15 @@
 class User {
     public static function register() {
         $db = require_once 'db/connect.php';
+
+        $query = $db->prepare('SELECT email FROM users WHERE email = :e');
+        $query->bindValue(':e', $_SESSION['form_email'], PDO::PARAM_STR);
+        $query->execute();
+        if ($query->fetch()) {
+            $_SESSION['form_error_email'] = "This email adress is arleady taken!";
+            return false;
+        }
+
         $query  = $db->prepare('CALL insert_new_user(:e, :n, :s, :p)');
         $query->bindValue(':e', $_SESSION['form_email'], PDO::PARAM_STR);
         $query->bindValue(':n', $_SESSION['form_name'], PDO::PARAM_STR);
@@ -19,6 +28,7 @@ class User {
 
         require_once "tools/cleanFormErrors.php";
 
+        return true;
     }
     
     public static function login() {

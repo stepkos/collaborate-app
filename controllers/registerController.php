@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (FormValidators::register()) {
     
-        User::register();
-
-        header('Location: login');
-        exit();
+        if (User::register()) {
+            header('Location: login');
+            exit();
+        }
     }
 }
 
