@@ -1,66 +1,21 @@
 <?php
 
-function editProfileValidator() {
-
-    // if (isset($_FILES['profile_picture']))
-    //     $_SESSION['form_profile_picture'] = $_FILES['profile_picture'];
-
-    $_SESSION['form_description'] = '';
-    if (isset($_POST['description']))
-        $_SESSION['form_description'] = $_POST['description'];
-
-    $_SESSION['form_technologies'] = '';
+function addProjectValidator() {
+    $_SESSION['project_technologies'] = '';
     if (isset($_POST['technologies']))
         foreach($_POST['technologies'] as $tech)
-            $_SESSION['form_technologies'] .= $tech.',';
+            $_SESSION['project_technologies'] .= $tech.',';
 
-    $_SESSION['form_email'] = 'NULL';
-    if (isset($_POST['email']))
-        $_SESSION['form_email'] = $_POST['email'];
+    $_SESSION['project_name'] = '';
+    if (isset($_POST['project_name']))
+        $_SESSION['project_name'] = $_POST['project_name'];
   
-    // NO VALUE!
-    $_SESSION['form_password'] = 'NULL';
-    if (isset($_POST['password']))
-        $_SESSION['form_password'] = $_POST['password'];
+    $_SESSION['project_target'] = '';
+    if(isset($_POST['project_target']))
+        $_SESSION['project_target'] = $_POST['project_target'];
 
-    //-------------------------------//
-    //            LINKS              //
-    //-------------------------------//
-    $_SESSION['link_names'] = '';
-    $_SESSION['link_bodies'] = '';
-    
-    if (isset($_POST['link-portfolio'])) {
-        $_SESSION['link_bodies'] .= $_POST['link-portfolio'].',';
-        $_SESSION['link_names'] .= 'Portfolio,';
-    }
-
-    if (isset($_POST['link-github'])) {
-        $_SESSION['link_bodies'] .= $_POST['link-github'].',';
-        $_SESSION['link_names'] .= 'Github,';
-    }
-
-    if (isset($_POST['link-facebook'])) {
-        $_SESSION['link_bodies'] .= $_POST['link-facebook'].',';
-        $_SESSION['link_names'] .= 'Facebook,';
-    }
-
-    if (isset($_POST['link-linkedln'])) {
-        $_SESSION['link_bodies'] .= $_POST['link-linkedln'].',';
-        $_SESSION['link_names'] .= 'Linkedln,';
-    }
-
-    if (isset($_POST['link-instagram'])) {
-        $_SESSION['link_bodies'] .= $_POST['link-instagram'].',';
-        $_SESSION['link_names'] .= 'Instagram,';
-    }
-
-    if (isset($_POST['link-twitter'])) {
-        $_SESSION['link_bodies'] .= $_POST['link-twitter'].',';
-        $_SESSION['link_names'] .= 'Twitter,';
-    }
-
-    $_SESSION['link_names'] = substr($_SESSION['link_names'], 0, -1);
-    $_SESSION['link_bodies'] = substr( $_SESSION['link_bodies'], 0, -1);
-
+    $_SESSION['project_description'] = '';
+    if (isset($_POST['project_description']))
+        $_SESSION['project_description'] = $_POST['project_description'];
     return true;
 }

@@ -13,13 +13,13 @@
 
     <main>
         <div id="form_holder">
-            <form method="POST" id="add_project_form">
+            <form method="POST" id="add_project_form" enctype="multipart/form-data">
                 <label class="custom_file_upload">
-                    <input type="file"/>
+                    <input type="file" name="project_photo" />
                     <p>Press to upload project's photo</p>
                 </label>
 
-                <input type="text" id="project_name" placeholder="Project's name" /> 
+                <input type="text" id="project_name" name="project_name" placeholder="Project's name" /> 
 
                 <section id="top-panel-technology">
 
@@ -29,7 +29,6 @@
                 <div id="technologies-holder">
 
                 <?php
-
                     foreach($technologies as $tech) {
                         $active = '';
                         if ($tech['id'] != null) {
@@ -43,7 +42,6 @@
                             </label>
                         ';
                     }
-
                 ?>
 
                     
@@ -51,13 +49,16 @@
 
                 </section>
 
-                <select id="project_type">
-                    <option value="web">Web</option>
-                    <option value="desktop">Desktop</option>
-                    <option value="mobile">Mobile</option>
+                <select id="project_type" name="project_target">
+                    <option value="Web">Web</option>
+                    <option value="Desktop">Desktop</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Mixed">Mixed</option>
+                    <option value="Other">Other</option>
+                    <option value="Undefined">Undefined</option>
                 </select>
 
-                <input type="textarea" id="project_description" placeholder="Project's description" />
+                <input type="textarea" id="project_description" name="project_description" placeholder="Project's description" />
 
                 <input type="submit" />
             </form>
