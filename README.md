@@ -1,16 +1,19 @@
 # Collaborate
 Platform to search people to create projects together!
 
+#### Yes we know it isn't the loveliest code ever but it shows our perseverance and composure in such a crazy challenge like createing such a big app in pure PHP!
+
+
+
 ## How to run?
 - Install PHP and MySQL
-- Create empty database
 
 - Execute this file
 ```
 db/init.sql
 ```
 
-- Fill data to connect with database here
+- Fill a data to connect with database here
 ```
 db/config.php
 ```
