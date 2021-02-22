@@ -184,7 +184,7 @@ insert into Media(name) VALUES
 
 
 
-
+drop PROCEDURE if exists login_user;
 delimiter //
 CREATE PROCEDURE login_user (IN email1 varchar(50), IN password1 varchar(30))
     BEGIN
@@ -201,7 +201,7 @@ CREATE PROCEDURE login_user (IN email1 varchar(50), IN password1 varchar(30))
 delimiter ; 
 
 
-
+drop PROCEDURE if exists insert_new_user;
 delimiter //
 CREATE PROCEDURE insert_new_user (IN email1 varchar(50), IN name1 varchar(20), IN surname1 varchar(70), IN password1 varchar(30))
     BEGIN
@@ -209,7 +209,6 @@ CREATE PROCEDURE insert_new_user (IN email1 varchar(50), IN name1 varchar(20), I
         SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
         START TRANSACTION;
 
-            SET @last_id = (SELECT MAX(id) FROM users);
             INSERT INTO users(email,name,surname,password) VALUES 
             (email1, name1, surname1,password1);
 
@@ -220,8 +219,15 @@ delimiter ;
 
 
 drop PROCEDURE if exists insert_further_user_data;
+
 delimiter //
-CREATE PROCEDURE insert_further_user_data(IN id_user_inserting INT, IN description1 TEXT, IN email_changed varchar(50), IN password_changed varchar(30), IN media_names TEXT, IN links_to_media TEXT, IN technology_list TEXT)
+CREATE PROCEDURE insert_further_user_data(
+
+    IN id_user_inserting INT, IN description1 TEXT, 
+    IN email_changed varchar(50), IN password_changed varchar(30), 
+    IN media_names TEXT, IN links_to_media TEXT, IN technology_list TEXT
+
+)
     BEGIN
 
         SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
@@ -311,6 +317,9 @@ delimiter ;
 
 
 
+drop PROCEDURE if exists insert_collaborator;
+
+
 
 delimiter //
 CREATE PROCEDURE insert_collaborator (IN id_user_inserting INT, IN id_user_inserted INT, IN id_offert_destination INT)
@@ -336,11 +345,10 @@ delimiter ;
 
 
 
---!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--- FUNKCJA WSTAWIAJĄCA DANE O MATCH
--- OD RAZU SPRAWDZA CZY NASTĄPIŁO DOPASOWANIE
--- JEŚLI TAK, TO OD RAZU TWORZY CHAT I WYSYŁA AUTOMATYCZNIE WIADOMOŚĆ
--- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+drop PROCEDURE if exists insert_match;
+
+
+
 delimiter //
 CREATE PROCEDURE insert_match (IN id_user_inserted INT, IN id_offert1 INT)
        BEGIN
@@ -360,6 +368,7 @@ CREATE PROCEDURE insert_match (IN id_user_inserted INT, IN id_offert1 INT)
                 IF @setmatch + 1 = 2 THEN
                     SET @owner = (SELECT id FROM users INNER JOIN offert ON users.id = offert.owner_id WHERE offert.id = id_offert1);
                     CALL insert_message(id_user_inserted, @owner, "Właśnie dostaliście matcha! Super! Teraz możecie do siebie pisać. Ta wiadomość została wygenerowana automatycznie");
+                    DELETE FROM liked_offert WHERE id_offert=id_offert1 AND id_user=id_user_inserted;
                     SELECT 'Match' AS 'message';
                 ELSE
                     SELECT 'Not match' AS 'message'; 
@@ -371,9 +380,18 @@ delimiter ;
 
 
 
+drop PROCEDURE if exists insert_new_offert;
+
+
+
+
 
 delimiter //
-CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name VARCHAR(20), IN offert_name VARCHAR(60), IN offert_picture1 blob, IN offert_description TEXT, IN technology_list TEXT)
+CREATE PROCEDURE insert_new_offert (
+        IN id_user_inserting INT, IN category_name VARCHAR(20),
+        IN offert_name VARCHAR(60), IN offert_picture1 blob, 
+        IN offert_description TEXT, IN technology_list TEXT
+    )
        BEGIN
 
             
@@ -423,6 +441,8 @@ CREATE PROCEDURE insert_new_offert (IN id_user_inserting INT, IN category_name V
     END//
 delimiter ;
 
+
+drop PROCEDURE if exists insert_message;
 
 
 delimiter //
