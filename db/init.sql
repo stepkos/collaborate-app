@@ -225,7 +225,8 @@ CREATE PROCEDURE insert_further_user_data(
 
     IN id_user_inserting INT, IN description1 TEXT, 
     IN email_changed varchar(50), IN password_changed varchar(30), 
-    IN media_names TEXT, IN links_to_media TEXT, IN technology_list TEXT
+    IN media_names TEXT, IN links_to_media TEXT, IN technology_list TEXT,
+    IN profile_picture1 blob
 
 )
     BEGIN
@@ -234,7 +235,7 @@ CREATE PROCEDURE insert_further_user_data(
         START TRANSACTION;
 
 
-            UPDATE users SET description=description1 WHERE id=id_user_inserting;
+            
 
             IF email_changed IS NOT NULL THEN
                 UPDATE users set email=email_changed WHERE id=id_user_inserting;
@@ -244,9 +245,14 @@ CREATE PROCEDURE insert_further_user_data(
                 UPDATE users set password=password_changed WHERE id=id_user_inserting;
             END IF;
 
-             IF description1 IS NOT NULL THEN
+            IF description1 IS NOT NULL THEN
                 UPDATE users set description=description1 WHERE id=id_user_inserting;
             END IF;
+
+            IF profile_picture1 IS NOT NULL THEN
+                UPDATE users set profile_picture=profile_picture1 WHERE id=id_user_inserting;
+            END IF;
+
 
 
             DELETE FROM users_technology WHERE id_user=id_user_inserting;
