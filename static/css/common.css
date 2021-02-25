@@ -10,3 +10,7 @@
 body{
     display: flex;
 }
+a{
+    text-decoration: none !important;
+    color:inherit;
+}

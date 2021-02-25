@@ -42,6 +42,10 @@ if (isset($url[2]) ) {
             require_once "controllers/profileController.php";
             break;
 
+        case "offertDetail":  //temporary for development purposes!!!!!!!!!!!!!!!!!!
+            require_once "controllers/tempController.php";
+            break;
+
         default:
             echo "Error 404";
     }
