@@ -34,28 +34,28 @@
 
     <ul id="option-list">
 
-        <a href="home">
+        <a href=<?= ROOT_URL ?>>
             <li class="menu-option">
                 <span class="material-icons option-icons"> home</span>
                 <span class="option-text">Home</span>
             </li>
         </a>
         
-        <a href="chat">
+        <a href=<?= ROOT_URL."chat" ?>>
             <li class="menu-option">
                 <span class="material-icons option-icons">chat</span>
                 <span class="option-text">Chat</span>
             </li>
         </a>
 
-        <a href="settings">
+        <a href=<?= ROOT_URL."settings" ?>>
             <li class="menu-option">
                 <span class="material-icons option-icons">settings_suggest</span>
                 <span class="option-text">Settings</span>
             </li>
         </a>
 
-        <a href="about">
+        <a href=<?= ROOT_URL."about" ?>>
             <li class="menu-option">
                 <span class="material-icons option-icons">alternate_email</span>
                 <span class="option-text">About</span>

@@ -1,6 +1,6 @@
 <?php
 
-define("ROOT_URL", "collaborate/");
+define("ROOT_URL","http://localhost/collaborate/");
 
 $url = $_SERVER["REQUEST_URI"];
 $url = explode("/", $url);
@@ -30,9 +30,8 @@ if (isset($url[2]) ) {
             require_once "controllers/userPanelController.php";
             break;
 
-        case "home":
-            require_once "controllers/homeController.php";
-            break;
+        
+            
         
         case "addProject":
             require_once "controllers/addProjectController.php";
@@ -51,5 +50,6 @@ if (isset($url[2]) ) {
     }
 }
 else {
-    echo "Collaborate - Best tool for worst jobs";
+        require_once "controllers/homeController.php";
+        
     }
