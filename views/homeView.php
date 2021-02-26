@@ -78,6 +78,10 @@
 
            <section id="right-holder">
 
+                <?php
+                    print_r($url);
+                ?>
+
                 <div id="swipe-information">
                     <span class="material-icons">
                         thumb_up
@@ -90,36 +94,30 @@
                     $z_index = 1;
                     for($i = 1; $i <  count($offerts_main_data); $i+=1){
 
-                        
                         $single_offert = array_values(array_filter($offerts_main_data, function ($offert_data) use($i){
                             return($offert_data['id'] == $i);
                         }));
                        
                         
-
-                        //single offert jest nadal arrayem
+                        //single offert jest nadal arrayem 2-wymiarowym
                         if(isset($single_offert[0])){
 
-                            //print_r($single_offert[0][0]);
                             $id = $single_offert[0][0];
                             $offert_name = $single_offert[0][2];
                             $project_category = $single_offert[0][4];
                             
-                            //echo "<br/>";
-
                             $technologies = NULL;
-
                             foreach($single_offert as $record){
                                 $name = $record['technology'];
                                 $color = $record['color'];
-                                //echo $name." ".$color."<br/>";
                                 $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
                             };
-                            
 
+                            $link = ROOT_URL."offertDetails/".$id;
+                            
                             echo "
                                     <div class='project-card-find' style='z-index:{$z_index}' id='{$id}'>
-                                        <a href='#'>
+                                        <a href='{$link}'>
                                             <div class='project-img-holder' style='background-image:url(static/images/obraz.png)'></div>
                                             <div class='project-category'>{$project_category}</div>
 
@@ -137,125 +135,16 @@
                                 ";
                             
                             $z_index+=1;
-                
-
-
-
-
-
-
-
-                        }
-                       
-
-                        
-                        
-
-                        
+                        }     
                     };
                 ?> 
 
 
+
+
+
+
                 </section>
-
-                
-                    <!--<div class="project-card-find" style="z-index:1" id="31">
-                        <a href="#">
-                            <div class="project-img-holder" style="background-image:url(static/images/obraz.png)"></div>
-                            <div class="project-category">Desktop</div>
-
-                            <div class="project-bottom-holder-find">
-                                <h1 class="project-title">
-                                    Hackaton 2077
-                                </h1>
-
-                                <div class="project-tech-holder">
-                                    <div class="project-tech" style="background-color:lime">Node.js</div>
-                                    <div class="project-tech" style="background-color:orange">HTML</div>
-                                    <div class="project-tech" style="background-color:aqua">CSS</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                
-
-
-                
-                    <div class="project-card-find" style="z-index:2" id="32">
-                        <a href="#">
-                            <div class="project-img-holder" style="background-image:url(static/images/john.png)"></div>
-                            <div class="project-category">Web</div>
-
-                            <div class="project-bottom-holder-find">
-                                <h1 class="project-title">
-                                    Hackaton 2069
-                                </h1>
-
-                                <div class="project-tech-holder">
-                                    <div class="project-tech" style="background-color:blue">Django</div>
-                                    <div class="project-tech" style="background-color:orange">HTML</div>
-                                    <div class="project-tech" style="background-color:aqua">CSS</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>-->
-                
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </main>
 
