@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: home');
+    header('Location:'.ROOT_URL);
     exit();
 }
 

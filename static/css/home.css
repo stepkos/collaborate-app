@@ -6,6 +6,8 @@ main{
     margin-left:21%;
     float: right;
     padding:0;
+    display: flex;
+  flex-flow: row nowrap;
 }
 .project-card-find a{
     text-decoration: none;
@@ -19,6 +21,7 @@ main{
 }
 
 #left-panel{
+    flex: 1 1 auto;
     width:25%;
     height:100%;
     overflow-y: scroll;
@@ -168,9 +171,10 @@ main{
 
 
 #right-holder{
+    flex: 1 1 auto;
     float:left;
     height:100%;
-    width:75%;
+    min-width:75%;
     
     position: relative;
     overflow: hidden;

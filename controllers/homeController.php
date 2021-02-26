@@ -6,4 +6,8 @@ require_once "tools/activeRequired.php";
 
 
 
+
+
+
+require_once "models/homeModelGET.php";
 require_once "views/homeView.php";
