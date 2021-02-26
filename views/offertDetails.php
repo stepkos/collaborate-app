@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?php require_once "templates/metadata.php"; ?>
-    <link rel="stylesheet" href="static/css/offertDetail.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/offertDetail.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Documen213234234</title>
 </head>
 
 
@@ -18,12 +18,12 @@
 
         <section id="offert-card">
 
-            <div id="project-img-holder" style="background-image:url(static/images/obraz.png)"></div>
+            <div id="project-img-holder" style="background-image:url(../static/images/obraz.png)"></div>
             <div id="project-category">Desktop</div>
-            <h1 id="offert-title">Hackaton 2020</h1>
+            <h1 id="offert-title"><?php print_r($url)?></h1>
 
             <div id="owner-holder">
-                <div id="owner-picture" style="background-image: url('static/images/john.jpg')"></div>
+                <div id="owner-picture" style="background-image: url('../static/images/john.jpg')"></div>
                 <div id="owner-details">
                     <p id="project-manager">Project Manager</p>
                     <p id="owner-name">John Doe</p>
@@ -37,14 +37,14 @@
             <div id="collaborators-holder">
                 <p id="collaborators-title">Collaborators</p>
                 <div id="picture-holder">
-                    <div class="collaborator-picture" style="background-image: url('static/images/john.jpg')"></div>
-                    <div class="collaborator-picture" style="background-image: url('static/images/john.jpg')"></div>
-                    <div class="collaborator-picture" style="background-image: url('static/images/john.jpg')"></div>
-                    <div class="collaborator-picture" style="background-image: url('static/images/john.jpg')"></div>
-                    <div class="collaborator-picture" style="background-image: url('static/images/john.jpg')"></div>
-                    <div class="collaborator-picture" style="background-image: url('static/images/john.jpg')"></div>
-                    <div class="collaborator-picture" style="background-image: url('static/images/john.jpg')"></div>
-                    <div class="collaborator-picture" style="background-image: url('static/images/john.jpg')"></div>
+                    <div class="collaborator-picture" style="background-image: url('../static/images/john.jpg')"></div>
+                    <div class="collaborator-picture" style="background-image: url('../static/images/john.jpg')"></div>
+                    <div class="collaborator-picture" style="background-image: url('../static/images/john.jpg')"></div>
+                    <div class="collaborator-picture" style="background-image: url('../static/images/john.jpg')"></div>
+                    <div class="collaborator-picture" style="background-image: url('../static/images/john.jpg')"></div>
+                    <div class="collaborator-picture" style="background-image: url('../static/images/john.jpg')"></div>
+                    <div class="collaborator-picture" style="background-image: url('../static/images/john.jpg')"></div>
+                    <div class="collaborator-picture" style="background-image: url('../static/images/john.jpg')"></div>
                 </div>
 
             </div>

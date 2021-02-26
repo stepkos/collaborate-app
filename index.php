@@ -6,9 +6,10 @@ $url = $_SERVER["REQUEST_URI"];
 $url = explode("/", $url);
 $url = array_filter($url);
 
+
 // Redirect to controller if parameter given
 if (isset($url[2]) ) {
-
+    
     switch ($url[2]) {
         case "register":
             require_once "controllers/registerController.php";
@@ -31,7 +32,6 @@ if (isset($url[2]) ) {
             break;
 
         
-            
         
         case "addProject":
             require_once "controllers/addProjectController.php";
@@ -41,8 +41,8 @@ if (isset($url[2]) ) {
             require_once "controllers/profileController.php";
             break;
 
-        case "offertDetail":  //temporary for development purposes!!!!!!!!!!!!!!!!!!
-            require_once "controllers/tempController.php";
+        case "offertDetails":  
+            require_once "controllers/offertDetailsController.php";
             break;
 
         default:
