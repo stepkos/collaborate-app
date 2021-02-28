@@ -43,6 +43,12 @@ if (isset($url[2]) ) {
             require_once "controllers/offertDetailsController.php";
             break;
 
+        // TEST
+        case "findPeople":
+            require_once "views/findPeople.php";
+            break;
+        // --------
+
         default:
             echo "Error 404";
     }
