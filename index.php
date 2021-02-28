@@ -31,8 +31,6 @@ if (isset($url[2]) ) {
             require_once "controllers/userPanelController.php";
             break;
 
-        
-        
         case "addProject":
             require_once "controllers/addProjectController.php";
             break;
@@ -50,6 +48,5 @@ if (isset($url[2]) ) {
     }
 }
 else {
-        require_once "controllers/homeController.php";
-        
-    }
+    require_once "controllers/homeController.php"; 
+}
