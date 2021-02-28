@@ -10,6 +10,8 @@
     $url = array_filter($url);
 
 
+
+    require_once "models/offertDetailsModelGET.php";
     require_once "views/offertDetails.php";
 
 ?>
