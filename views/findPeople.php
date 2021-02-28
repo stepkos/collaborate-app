@@ -57,7 +57,8 @@
                 </div>
 
                            
-                <div class='project-card-find' style='z-index:2' id='2'>
+
+                <!-- <div class='project-card-find' style='z-index:2' id='2'>
                     <a href='{$link}'>
                         <div class='project-img-holder' style='background-image:url(static/images/obraz.png)'></div>
                         <div class='project-category'>WEB</div>
@@ -65,6 +66,29 @@
                         <div class='project-bottom-holder-find'>
                             <h1 class='project-title'>
                                 Nazwa
+                            </h1>
+
+                            <div class='project-tech-holder'>
+                                <div class='project-tech' style='background-color: red;'>javascript</div>
+                                <div class='project-tech' style='background-color: green;'>php</div>
+                            </div>
+                        </div>
+                    </a>
+                </div> -->
+
+                <div class='project-card-find' style='z-index:2' id='2'>
+                    <a href='{$link}'>
+                        <div class='project-img-holder' style='background-image:url(static/images/john.jpg)'>
+                        
+                        
+                    </div>
+                    <div class="project-details-icon">i</div>
+                    <!-- <div class='project-category'>WEB</div> -->
+
+
+                        <div class='project-bottom-holder-find'>
+                            <h1 class='project-title'>
+                                Jan Napieralski
                             </h1>
 
                             <div class='project-tech-holder'>

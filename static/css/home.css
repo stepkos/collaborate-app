@@ -165,6 +165,10 @@ main {
     margin-left: 20px;
 }
 
+.project-details-icon {
+    background-color: red;
+}
+
 #right-holder {
     flex: 1 1 auto;
     float: left;
