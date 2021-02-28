@@ -5,6 +5,7 @@ $config = require_once 'db/config.php';
 try {
     $pdo = new PDO(
         "mysql:host={$config['host']};
+        port=3300;
         dbname={$config['database']}",
         $config['user'],
         $config['password']
