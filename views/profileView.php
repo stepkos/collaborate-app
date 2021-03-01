@@ -4,14 +4,15 @@
 
     <?php require_once "templates/metadata.php"; ?>
     <link rel="stylesheet" href="../static/css/profile.css" type="text/css"/>
-    <title>Profile - <?php print_r($user_main_data[0][0])?></title>
+    <title>Profile - <?php print_r($user_main_data[0][0]) ?></title>
 
 </head>
 <body>
 
+
         <?php require_once "templates/menuLeft.php"; ?>
         
-
+        
         <main>
             <section id="leftSection">
                 <div id="profile-picture1" style="background-image: url('../static/images/john.jpg')"></div>

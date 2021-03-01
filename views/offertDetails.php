@@ -6,7 +6,7 @@
     <?php require_once 'templates/metadata.php'; ?>
     <link rel='stylesheet' href='../static/css/offertDetail.css' type='text/css' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Documen213234234</title>
+    <title>Project - <?php print_r($offert_main_data[0]['name']); ?></title>
 </head>
 
 
