@@ -63,24 +63,11 @@
 
 
 
-            
-
-
-
-           
-
-
-
-
-
 
 
 
            <section id="right-holder">
 
-                <?php
-                    print_r($url);
-                ?>
 
                 <div id="swipe-information">
                     <span class="material-icons">

@@ -104,7 +104,7 @@ main {
     width: 80%;
     align-self: center;
     height: auto;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .social-icons {

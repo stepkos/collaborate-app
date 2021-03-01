@@ -3,64 +3,106 @@
 <head>
 
     <?php require_once "templates/metadata.php"; ?>
-    <link rel="stylesheet" href="static/css/profile.css" type="text/css"/>
-    <title>Profile - John Doe</title>
+    <link rel="stylesheet" href="../static/css/profile.css" type="text/css"/>
+    <title>Profile - <?php print_r($user_main_data[0][0])?></title>
 
 </head>
 <body>
 
         <?php require_once "templates/menuLeft.php"; ?>
+        
 
         <main>
             <section id="leftSection">
-                <div id="profile-picture1" style="background-image: url('static/images/john.jpg')"></div>
-                <p id="user-name">John Doe</p>
+                <div id="profile-picture1" style="background-image: url('../static/images/john.jpg')"></div>
+                <p id="user-name"><?php print_r($user_main_data[0][0])   ?></p>
 
                 <div id="adds-holder">
                     <div class="add">
-                        3<br/>
+                        <?php print_r($user_projects_count[0][0]); ?><br/>
                         Projects
                     </div>
 
                     <div class="add">
-                        8<br/>
+                        0<br/>
                         Matches
                     </div>
 
                     <div class="add">
-                        5<br/>
+                        0<br/>
                         Stars
                     </div>
                 </div>
 
 
-                <div id="user-description">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit molestiae eaque quod debitis, iusto minus asperiores pariatur voluptatum illo obcaecati voluptatibus ad ut possimus autem ipsum, id suscipit nobis nemo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi adipisci debitis voluptates, minus saepe qui possimus blanditiis facere quidem reiciendis voluptas non! Sed, quam! Debitis incidunt hic similique quas tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quae velit magnam veritatis adipisci autem quaerat dolore nesciunt. Obcaecati sint nam, vero tempora quas eos exercitationem accusantium quisquam nobis libero.
-                </div>
 
-
-            
-
-                
-                    <div id="portfolio-div">
-                        <a href="#" style="text-decoration:none; color:white">
-                            Portfolio Page
-                        </a>
-                    </div>
-                
-
-                    <div id="social-holder">
-                        <a href="#">
-                            <img src="static/images/icons/fb.png" class="social-icons"/>
-                        </a>
-                        <img src="static/images/icons/instagram.webp" class="social-icons"/>
-                        <img src="static/images/icons/github.webp" class="social-icons"/>
-                        <img src="static/images/icons/linkedin.png" class="social-icons"/>
-                        <img src="static/images/icons/twitter.png" class="social-icons"/>
+                <?php
+                    //opis profilu
+                    if(isset($user_main_data[0][1])){
                         
-                    </div>
+                        $description = $user_main_data[0][1];
+                        echo "
+                            <div id='user-description'>
+                                $description
+                            </div>";
+                    };
+                ?>
+
+
+
+                <?php
+                    // portfolio div
+                    $portfolio = array_values(array_filter($user_social_links, function($record){
+                        return $record['name'] === 'Portfolio';
+                    }));
+                   
+
+                    if(isset($portfolio) and count($portfolio) != 0){
+                        $link = $portfolio[0][1];
+                        echo "
+                            <div id='portfolio-div'>
+                                <a href='$link' style='text-decoration:none; color:white'>
+                                    Portfolio Page
+                                </a>
+                            </div>
+                        ";
+                    }
+                    else{
+                        echo "
+                            <div id='portfolio-div' style='background-color:grey'>
+                                <a href='' style='text-decoration:none; color:white; cursor:default'>
+                                    Portfolio Page
+                                </a>
+                            </div>
+                        ";
+                    }
+                ?>
+
+
+
+
                 
 
+                <?php
+                    
+                    //technologie
+                    $user_social_links1 = array_values(array_filter($user_social_links, function($record){
+                        return $record['name'] != 'Portfolio';
+                    }));
+
+                    $medias = NULL;
+                    for($i = 0; $i < count($user_social_links1); $i+=1){
+                        $media_name = $user_social_links1[$i][0];
+                        $media_link = $user_social_links1[$i][1];
+                        $medias.="<a href='$media_link' target='_blank'><img src='../static/images/icons/$media_name.png' class='social-icons'/></a>";
+                    };
+
+                    echo "
+                        <div id='social-holder'>
+                            $medias
+                        </div>
+                     ";
+                ?>
             </section>
 
             
@@ -68,22 +110,78 @@
 
                 <h1 id="technology-h1">My technologies</h1>
 
+
+
+
                 <div id="technology-holder">
-                    <div class="technology-div" style="background-color:lime">Node.js</div>
-                    <div class="technology-div" style="background-color:blue">CSS</div>
-                    <div class="technology-div" style="background-color:orange">HTML</div>
-                    <div class="technology-div" style="background-color:yellow">Javascript</div>
-                    <div class="technology-div" style="background-color:aqua">React</div>
-                    <div class="technology-div" style="background-color:purple">C#</div>
-                    <div class="technology-div" style="background-color:red">Angular.js</div>
-                    <div class="technology-div" style="background-color:magenta; margin-right:auto">C++</div>
+
+
+                    <?php
+                        
+                        $technologies = NULL;
+                        for($i = 0; $i < count($user_technologies); $i+=1){
+                            $color = $user_technologies[$i][1];
+                            $name = $user_technologies[$i][0];
+                            $technologies.="<div class='technology-div' style='background-color:$color'>$name</div>";
+                        };
+
+                        echo $technologies;
+                    ?>
+                   
                 </div>
 
                 <h1 id="projects-h1">My Projects</h1>
 
                 <section id="projects-holder">
 
-                    <a href="#" style="text-decoration:none">
+
+
+                    <?php
+                    
+                    for($i = 1; $i <  count($user_projects); $i+=1){
+
+                        $single_offert = array_values(array_filter($user_projects, function ($offert_data) use($i){
+                            return($offert_data['id'] == $i);
+                        }));
+
+                        if(isset($single_offert[0])){
+
+                            $id = $single_offert[0][0];
+                            $offert_name = $single_offert[0][2];
+                            $project_category = $single_offert[0][4];
+                            
+                            $technologies = NULL;
+                            foreach($single_offert as $record){
+                                $name = $record['technology'];
+                                $color = $record['color'];
+                                $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
+                            };
+
+                            $link = ROOT_URL."offertDetails/".$id;
+
+                            echo "
+                            <a href='$link' style='text-decoration:none'>
+                                <div class='project-card'>
+                                    <div class='project-img-holder' style='background-image:url(../static/images/john.png)'></div>
+                                    <div class='project-category'>Web</div>
+                                    <div class='project-bottom-holder'>
+                                        <h1 class='project-title'>
+                                            Hackaton 2069
+                                        </h1>
+
+                                        <div class='project-tech-holder'>
+                                            $technologies
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            ";
+                        };
+                    }
+                    
+                    ?>
+
+                    <!--<a href="#" style="text-decoration:none">
                         <div class="project-card">
                             <div class="project-img-holder" style="background-image:url(static/images/john.png)"></div>
                             <div class="project-category">Web</div>
@@ -120,7 +218,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </a>-->
 
 
 
