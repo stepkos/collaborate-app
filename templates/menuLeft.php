@@ -23,7 +23,7 @@
             </div>
         </a>
 
-        <a href="logout">
+        <a href=<?= ROOT_URL."logout" ?>>
             <div id="logOut">
                 Log out
             </div>
