@@ -155,14 +155,20 @@ main {
 
 .project-tech {
     width: 100px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2px;
+    padding: 4px;
     color: white;
     border-radius: 1.3em;
     cursor: pointer;
     position: relative;
+    margin-left: 10px;
+    text-shadow: 0 0 5px rgb(150, 150, 150);
+}
+
+.project-tech:first-child {
     margin-left: 20px;
 }
 
