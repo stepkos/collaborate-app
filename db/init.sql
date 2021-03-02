@@ -12,7 +12,7 @@ CREATE TABLE Users (
   name varchar(20) NOT NULL,
   surname varchar(70) NOT NULL,
   password varchar(255) NOT NULL,
-  profile_picture blob,
+  profile_picture LONGBLOB,
   active boolean DEFAULT false,
   premium boolean DEFAULT false,
   email varchar(50) UNIQUE NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE Offert (
   name varchar(60) NOT NULL,
   owner_id int NOT NULL,
   description TEXT NOT NULL,
-  picture blob
+  picture LONGBLOB
 );
 
 CREATE TABLE Media (
@@ -226,7 +226,7 @@ CREATE PROCEDURE insert_further_user_data(
     IN id_user_inserting INT, IN description1 TEXT, 
     IN email_changed varchar(50), IN password_changed varchar(30), 
     IN media_names TEXT, IN links_to_media TEXT, IN technology_list TEXT,
-    IN profile_picture1 blob
+    IN profile_picture1 LONGBLOB
 
 )
     BEGIN
@@ -395,7 +395,7 @@ drop PROCEDURE if exists insert_new_offert;
 delimiter //
 CREATE PROCEDURE insert_new_offert (
         IN id_user_inserting INT, IN category_name VARCHAR(20),
-        IN offert_name VARCHAR(60), IN offert_picture1 blob, 
+        IN offert_name VARCHAR(60), IN offert_picture1 LONGBLOB, 
         IN offert_description TEXT, IN technology_list TEXT
     )
        BEGIN

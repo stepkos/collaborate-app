@@ -19,7 +19,7 @@
 
                 <div id="adds-holder">
                     <div class="add">
-                        0<br/>
+                    <?php print_r($user_projects_count[0][0]); ?><br/>
                         Projects
                     </div>
 
@@ -49,51 +49,44 @@
 
                 <section id="projects-holder">
 
-
                 <?php
-                    
-                    for($i = 1; $i <  count($user_projects); $i+=1){
+                   
+                   for($i = 0; $i <  $user_projects_count[0][0]; $i+=1){
 
-                        $single_offert = array_values(array_filter($user_projects, function ($offert_data) use($i){
-                            return($offert_data['id'] == $i);
-                        }));
+                           $id = $user_projects[0][0];
+                           $offert_name = $user_projects[0][2];
+                           $project_category = $user_projects[0][4];
+                           
+                           $technologies = NULL;
+                           foreach($user_projects as $record){
+                               $name = $record['technology'];
+                               $color = $record['color'];
+                               $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
+                           };
 
-                        if(isset($single_offert[0])){
+                           $link = ROOT_URL."offertDetails/".$id;
 
-                            $id = $single_offert[0][0];
-                            $offert_name = $single_offert[0][2];
-                            $project_category = $single_offert[0][4];
-                            
-                            $technologies = NULL;
-                            foreach($single_offert as $record){
-                                $name = $record['technology'];
-                                $color = $record['color'];
-                                $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
-                            };
+                           echo "
+                           <a href='$link' style='text-decoration:none'>
+                               <div class='project-card'>
+                                   <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                                   <div class='project-category'>$project_category</div>
+                                   <div class='project-bottom-holder'>
+                                       <h1 class='project-title'>
+                                       $offert_name
+                                       </h1>
 
-                            $link = ROOT_URL."offertDetails/".$id;
-
-                            echo "
-                            <a href='$link' style='text-decoration:none'>
-                                <div class='project-card'>
-                                    <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
-                                    <div class='project-category'>Web</div>
-                                    <div class='project-bottom-holder'>
-                                        <h1 class='project-title'>
-                                            Hackaton 2069
-                                        </h1>
-
-                                        <div class='project-tech-holder'>
-                                            $technologies
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            ";
-                        };
-                    }
-                    
-                    ?>
+                                       <div class='project-tech-holder'>
+                                           $technologies
+                                       </div>
+                                   </div>
+                               </div>
+                           </a>
+                           ";
+                       
+                   }
+                   
+                   ?>
 
                     <!--<a href='$link' style='text-decoration:none'>
                         <div class='project-card'>

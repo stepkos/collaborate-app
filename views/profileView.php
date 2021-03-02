@@ -139,13 +139,6 @@
                    
                     for($i = 0; $i <  $user_projects_count[0][0]; $i+=1){
 
-                        $single_offert = array_values(array_filter($user_projects, function ($offert_data) use($i){
-                            return($offert_data['id'] == $i);
-                        }));
-
-                        
-                        
-
                             $id = $user_projects[0][0];
                             $offert_name = $user_projects[0][2];
                             $project_category = $user_projects[0][4];
@@ -163,10 +156,10 @@
                             <a href='$link' style='text-decoration:none'>
                                 <div class='project-card'>
                                     <div class='project-img-holder' style='background-image:url(../static/images/john.png)'></div>
-                                    <div class='project-category'>Web</div>
+                                    <div class='project-category'>$project_category</div>
                                     <div class='project-bottom-holder'>
                                         <h1 class='project-title'>
-                                            Hackaton 2069
+                                        $offert_name
                                         </h1>
 
                                         <div class='project-tech-holder'>

@@ -17,6 +17,10 @@
         where offerts_detailed.owner_id = {$profile_user_id};"
     )->fetchAll();
 
+    $user_projects_count = $db->query(
+        "SELECT count(*) from offert where owner_id = {$profile_user_id};"
+    )->fetchAll();
+
 
 
 
