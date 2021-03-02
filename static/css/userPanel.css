@@ -101,12 +101,10 @@ main {
 
 /* Project holder */
 
-
-
 #add_button button {
-    position:fixed;
-    bottom:5%;
-    z-index:999;
+    position: fixed;
+    bottom: 5%;
+    z-index: 999;
     margin-top: 10%;
     border: none;
     width: 10vh;
@@ -116,15 +114,6 @@ main {
     color: white;
 }
 
-
-
-
-
-
-
-
-
-
 #leftSection {
     width: 40%;
     height: 100%;
@@ -133,6 +122,7 @@ main {
     display: flex;
     flex-direction: column;
 }
+
 #profile-picture1 {
     width: 150px;
     height: 150px;
@@ -156,6 +146,7 @@ main {
     margin-top: 30px;
     font-size: bold;
 }
+
 #adds-holder {
     align-self: center;
     width: 100%;
@@ -173,6 +164,7 @@ main {
     margin: 10px auto;
     font-size: 1.2em;
 }
+
 #rightSection {
     width: 60%;
     height: 100%;
@@ -187,6 +179,7 @@ main {
     margin-top: 70px;
     font-size: 2em;
 }
+
 #projects-holder {
     width: 99%;
     height: 90%;
@@ -198,6 +191,7 @@ main {
     padding-bottom: 30px;
     position: relative;
 }
+
 #projects-holder::-webkit-scrollbar {
     width: 10px;
 }
@@ -211,6 +205,7 @@ main {
     background: rgb(212, 212, 212);
     border-radius: 6.25em;
 }
+
 .project-card {
     width: 500px;
     height: 350px;
@@ -282,4 +277,5 @@ main {
     cursor: pointer;
     position: relative;
     margin-left: 20px;
+    text-shadow: 0 0 5px rgb(150, 150, 150);
 }

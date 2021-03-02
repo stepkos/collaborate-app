@@ -149,6 +149,8 @@ main {
     cursor: pointer;
     position: relative;
     margin: 20px;
+    font-size: 1.5em;
+    text-shadow: 0 0 5px rgb(150, 150, 150);
 }
 
 #projects-h1 {
@@ -253,4 +255,5 @@ main {
     cursor: pointer;
     position: relative;
     margin-left: 20px;
+    text-shadow: 0 0 5px rgb(150, 150, 150);
 }
