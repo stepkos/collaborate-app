@@ -25,7 +25,7 @@ function editProfileValidator() {
         $_SESSION['form_password'] = $_POST['password'];
     
     $_SESSION['profile_picture'] = 'NULL';
-    if (!file_exists($_FILES['profile_picture']['tmp_name'])) {
+    if (file_exists($_FILES['profile_picture']['tmp_name'])) {
         $_SESSION['profile_picture'] = base64_encode(file_get_contents($_FILES['profile_picture']['tmp_name']));
     }
 

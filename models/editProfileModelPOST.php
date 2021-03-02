@@ -11,7 +11,8 @@ $db = require_once "db/connect.php";
 // $query->bindValue(':link_names', $_SESSION['link_names'], PDO::PARAM_STR);
 // $query->bindValue(':link_bodies', $_SESSION['link_bodies']);
 // $query->bindValue(':technologies', $_SESSION['form_technologies'], PDO::PARAM_STR);
-$sql = 'CALL insert_further_user_data('.$_SESSION['user_id'].', "'.$_SESSION['form_description'].'", "'.$_SESSION['form_email'].'", '.$_SESSION['form_password'].', "'.$_SESSION['link_names'].'", "'.$_SESSION['link_bodies'].'", "'.$_SESSION['form_technologies'].", ".$_SESSION['profile_picture'].'";"')';
+
+$sql = 'CALL insert_further_user_data('.$_SESSION['user_id'].', "'.$_SESSION['form_description'].'", "'.$_SESSION['form_email'].'", '.$_SESSION['form_password'].', "'.$_SESSION['link_names'].'", "'.$_SESSION['link_bodies'].'", "'.$_SESSION['form_technologies'].'", "'.$_SESSION['profile_picture'].'");';
 // echo $sql;
 // exit();
 $db->query($sql);
