@@ -47,12 +47,11 @@ main {
 
 #projects-holder {
     display: flex;
-    align-self: center;
+    /* justify-content: flex-start; */
     width: 100%;
-    margin-top: 10px;
+    margin-top: 50px;
     flex-direction: column;
     padding-bottom: 30px;
-    padding-top: 500px;
 }
 
 #projects-holder a {
