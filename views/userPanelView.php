@@ -53,12 +53,18 @@
                    
                    for($i = 0; $i <  $user_projects_count[0][0]; $i+=1){
 
-                           $id = $user_projects[0][0];
-                           $offert_name = $user_projects[0][2];
-                           $project_category = $user_projects[0][4];
+                            $tempName = $user_projects[0][2];
+                            $single_offert = array_values(array_filter($user_projects, function($record) use ($tempName){
+                                return $record[2] === $tempName;
+                            }));
+                            $user_projects = array_slice($user_projects, count($single_offert));
+
+                            $id = $single_offert[0][0];
+                            $offert_name = $single_offert[0][2];
+                            $project_category = $single_offert[0][4];
                            
                            $technologies = NULL;
-                           foreach($user_projects as $record){
+                           foreach($single_offert as $record){
                                $name = $record['technology'];
                                $color = $record['color'];
                                $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";

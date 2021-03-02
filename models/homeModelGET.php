@@ -35,7 +35,7 @@
         where owner_id = {$profile_user_id};
     ")->fetchAll();
 
-    $user_projects_count = $db->query(
+    $owned_offerts_count = $db->query(
         "SELECT count(*) from offert where owner_id = {$profile_user_id};"
     )->fetchAll();
 
