@@ -14,7 +14,7 @@
     <?php require_once "templates/menuLeft.php"; ?>
 
     <main>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <section id="left-panel-profile">
 
             <label for="profile-picture-input" id="label-picture"><img src="static/images/unknown-picture.jpg"/></label>

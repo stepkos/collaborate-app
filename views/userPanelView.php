@@ -6,123 +6,194 @@
     <?php require_once "templates/metadata.php"; ?>
     <link rel="stylesheet" href="static/css/userPanel.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User panel</title>
 </head>
 <body>
     <?php require_once "templates/menuLeft.php"; ?>
     <main>
-        <div class="holder">
-            <div class="user_photo">
-                <img src="static/images/unknown-picture.jpg" />
-            </div>
 
-            <div class="name">
-                John Doe
-            </div>
 
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat_count">
-                        3
-                    </div>
-                    <div class="stat_name">
+        <section id="leftSection">
+                <div id="profile-picture1" style="background-image: url('static/images/john.jpg')"></div>
+                <p id="user-name"><?php print_r($user_main_data[0][0]) ?></p>
+
+                <div id="adds-holder">
+                    <div class="add">
+                    <?php print_r($user_projects_count[0][0]); ?><br/>
                         Projects
                     </div>
-                </div>
-                <div class="stat">
-                    <div class="stat_count">
-                        8
-                    </div>
-                    <div class="stat_name">
+
+                    <div class="add">
+                        0<br/>
                         Matches
                     </div>
-                </div>
-                <div class="stat">
-                    <div class="stat_count">
-                        5
-                    </div>
-                    <div class="stat_name">
+
+                    <div class="add">
+                        0<br/>
                         Stars
                     </div>
                 </div>
-            </div>
 
             <div class="buttons">
-                <a href="profile"><button id="button1">Display profillie</button></a>
+                <a href=<?= ROOT_URL."profile/".$profile_user_id ?>><button id="button1">Display profile</button></a>
                 <a href="editProfile"><button id="button2">Edit profile</button></a>
             </div>
         </div>
 
-        <div class="holder">
-                <div class="projects_holder">
-                    <div class="project">
-                        <div class="project_picture" style="background-size: cover; background-image: url('static/images/john.jpg');">
-                            <div class="option_buttons">
-                                <a href="#" id="x_button"><button>X</button></a>
-                            </div>
-                            <div class="project_type">
-                                Mobile
-                            </div>
-                        </div>
-                        <div class="project_name">
-                            Android App
-                        </div>
+        </section>
 
-                        <div class="project_tech">
-                            <div class="tech">
-                                Django
-                            </div>
-                            <div class="tech">
-                                Golang
+        <section id="rightSection">
+
+
+                <h1 id="projects-h1">My Projects</h1>
+
+                <section id="projects-holder">
+
+                <?php
+                   
+                   for($i = 0; $i <  $user_projects_count[0][0]; $i+=1){
+
+                           $id = $user_projects[0][0];
+                           $offert_name = $user_projects[0][2];
+                           $project_category = $user_projects[0][4];
+                           
+                           $technologies = NULL;
+                           foreach($user_projects as $record){
+                               $name = $record['technology'];
+                               $color = $record['color'];
+                               $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
+                           };
+
+                           $link = ROOT_URL."offertDetails/".$id;
+
+                           echo "
+                           <a href='$link' style='text-decoration:none'>
+                               <div class='project-card'>
+                                   <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                                   <div class='project-category'>$project_category</div>
+                                   <div class='project-bottom-holder'>
+                                       <h1 class='project-title'>
+                                       $offert_name
+                                       </h1>
+
+                                       <div class='project-tech-holder'>
+                                           $technologies
+                                       </div>
+                                   </div>
+                               </div>
+                           </a>
+                           ";
+                       
+                   }
+                   
+                   ?>
+
+                    <!--<a href='$link' style='text-decoration:none'>
+                        <div class='project-card'>
+                            <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                            <div class='project-category'>Web</div>
+                            <div class='project-bottom-holder'>
+                                <h1 class='project-title'>
+                                    Hackaton 2069
+                                </h1>
+
+                                <div class='project-tech-holder'>
+                                    aisudhasihdiashdiashd
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project">
-                        <div class="project_picture" style="background-size: cover; background-image: url('static/images/john.png');">
-                            <div class="option_buttons">
-                                <a href="#" id="x_button"><button>X</button></a>
-                            </div>
-                            <div class="project_type">
-                                Web
-                            </div>
-                        </div>
-                        <div class="project_name">
-                            Blog website
-                        </div>
-                        <div class="project_tech">
-                            <div class="tech">
-                                Django
+                    </a>
+
+                    <a href='$link' style='text-decoration:none'>
+                        <div class='project-card'>
+                            <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                            <div class='project-category'>Web</div>
+                            <div class='project-bottom-holder'>
+                                <h1 class='project-title'>
+                                    Hackaton 2069
+                                </h1>
+
+                                <div class='project-tech-holder'>
+                                    adhdlgbthwdp
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="project">
-                        <div class="project_picture" style="background-size: cover; background-image: url('static/images/obraz1.png');">
-                            <div class="option_buttons">
-                                <a href="#" id="x_button"><button>X</button></a>
-                            </div>
-                            <div class="project_type">
-                                Desktop
-                            </div>
-                        </div>
-                        <div class="project_name">
-                            HackHeroes2020
-                        </div>
-                        <div class="project_tech">
-                            <div class="tech">
-                                C#
-                            </div>
-                            <div class="tech">
-                                UWP
-                            </div>
-                            <div class="tech">
-                                C++
+                    </a>
+
+                    <a href='$link' style='text-decoration:none'>
+                        <div class='project-card'>
+                            <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                            <div class='project-category'>Web</div>
+                            <div class='project-bottom-holder'>
+                                <h1 class='project-title'>
+                                    Hackaton 2069
+                                </h1>
+
+                                <div class='project-tech-holder'>
+                                    aisudhasihdiashdiashd
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <a href="addProject" id="add_button"><button>+</button></a>
-            </div>
-        </div>
+                    </a>
+
+
+                    <a href='$link' style='text-decoration:none'>
+                        <div class='project-card'>
+                            <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                            <div class='project-category'>Web</div>
+                            <div class='project-bottom-holder'>
+                                <h1 class='project-title'>
+                                    Hackaton 2069
+                                </h1>
+
+                                <div class='project-tech-holder'>
+                                    aisudhasihdiashdiashd
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href='$link' style='text-decoration:none'>
+                        <div class='project-card'>
+                            <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                            <div class='project-category'>Web</div>
+                            <div class='project-bottom-holder'>
+                                <h1 class='project-title'>
+                                    Hackaton 2069
+                                </h1>
+
+                                <div class='project-tech-holder'>
+                                    aisudhasihdiashdiashd
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href='$link' style='text-decoration:none'>
+                        <div class='project-card'>
+                            <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                            <div class='project-category'>Web</div>
+                            <div class='project-bottom-holder'>
+                                <h1 class='project-title'>
+                                    Hackaton 2069
+                                </h1>
+
+                                <div class='project-tech-holder'>
+                                    aisudhasihdiashdiashd
+                                </div>
+                            </div>
+                        </div>
+                    </a>-->
+
+
+                    <a href="addProject" id="add_button"><button>+</button></a>
+                </section>
+                
+
+            
+        </section>
+
+
+
     </main>
 </body>
 </html>

@@ -13,17 +13,17 @@
     </header>
 
     <section id="user-section">
-        <div id="profile-picture" style="background-image: url('static/images/john.jpg')"></div>
+        <div id="profile-picture" style="background-image: url(data:image/jpg;base64,<?php echo $_SESSION['profile_picture']?>"></div>
 
         <h1 id="user-name-text"><?= $_SESSION['user_name'].' '.$_SESSION['user_surname'] ?></h1>
 
-        <a href="userPanel">
+        <a href=<?= ROOT_URL."userPanel" ?>>
             <div id="myPanel">
                 My Panel
             </div>
         </a>
 
-        <a href="logout">
+        <a href=<?= ROOT_URL."logout" ?>>
             <div id="logOut">
                 Log out
             </div>

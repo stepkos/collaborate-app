@@ -49,7 +49,9 @@ class User {
             $_SESSION['user_premium'] = $user['premium'];
             $_SESSION['user_email'] = $user['email'];
             $_SESSION['user_description'] = $user['description'];
+            $_SESSION['profile_picture'] = $user['profile_picture'];
 
+            
             // unset validate errors sesstion valiables
             unset($_SESSION['form_email']);
             unset($_SESSION['form_password']);

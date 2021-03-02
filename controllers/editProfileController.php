@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (editProfileValidator()) {
         
         require_once 'models/editProfileModelPOST.php';
-        
+
         header('Location:'.ROOT_URL);
         exit();
     }

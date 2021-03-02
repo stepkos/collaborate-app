@@ -63,24 +63,12 @@
 
 
 
-            
-
-
-
-           
-
-
-
-
-
 
 
 
            <section id="right-holder">
 
-                <?php
-                    print_r($url);
-                ?>
+                <?php   print_r($owned_offerts);  ?>
 
                 <div id="swipe-information">
                     <span class="material-icons">
