@@ -68,7 +68,7 @@
 
            <section id="right-holder">
 
-                <?php   print_r($owned_offerts);  ?>
+                <?php   print_r($display_projects_count[0][0]);  ?>
 
                 <div id="swipe-information">
                     <span class="material-icons">
@@ -80,22 +80,20 @@
                 <?php
 
                     $z_index = 1;
-                    for($i = 1; $i <  count($offerts_main_data); $i+=1){
+                    for($i = 0; $i <  $display_projects_count[0][0]; $i+=1){
 
-                        $single_offert = array_values(array_filter($offerts_main_data, function ($offert_data) use($i){
-                            return($offert_data['id'] == $i);
-                        }));
+                        
                        
                         
                         //single offert jest nadal arrayem 2-wymiarowym
-                        if(isset($single_offert[0])){
+                        
 
-                            $id = $single_offert[0][0];
-                            $offert_name = $single_offert[0][2];
-                            $project_category = $single_offert[0][4];
+                        $id = $offerts_main_data[0][0];
+                        $offert_name = $offerts_main_data[0][2];
+                        $project_category = $offerts_main_data[0][4];
                             
                             $technologies = NULL;
-                            foreach($single_offert as $record){
+                            foreach($offerts_main_data as $record){
                                 $name = $record['technology'];
                                 $color = $record['color'];
                                 $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
@@ -123,7 +121,7 @@
                                 ";
                             
                             $z_index+=1;
-                        }     
+                           
                     };
                 ?> 
 
