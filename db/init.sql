@@ -464,6 +464,19 @@ delimiter ;
 
 
 
+
+
+DROP VIEW IF EXISTS offerts_detailed;
+CREATE VIEW offerts_detailed AS
+SELECT offert.id, CONCAT(users.name," ",users.surname) as "owner", offert.owner_id, offert.name, project_category.name as "project_category", offert.description from offert
+inner join users on offert.owner_id = users.id
+inner join project_category on offert.category_id = project_category.id;
+
+
+
+
+
+
 DROP USER IF EXISTS 'user'@'localhost';
 CREATE USER 'user'@'localhost' IDENTIFIED BY '123';
 GRANT 'application_user' to 'user'@'localhost';

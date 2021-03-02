@@ -1,0 +1,33 @@
+main {
+    width: 79%;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+    margin-left: 21%;
+    float: right;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#p404{
+    font-family: 'Pacifico', cursive;
+    font-size:13em;
+    color:var(--primary-red-color);
+}
+#error-description{
+    margin-top:10px;
+    font-size:1.2em;
+}
+#homeButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+    color:white;
+    background-color: var(--darker-red-color);
+    border-radius:2rem;
+    margin-top:20px;
+}

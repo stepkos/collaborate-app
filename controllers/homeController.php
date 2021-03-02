@@ -2,7 +2,11 @@
 
 session_start();
 require_once "tools/loginRequired.php";
+<<<<<<< HEAD
 //require_once "tools/activeRequired.php";
+=======
+require_once "tools/activeRequired.php";
+>>>>>>> ebb73bf01762aff181707420331d3ede6f466f0a
 
 //Get logged user's projects
 $db = require_once "db/connect.php";
@@ -17,4 +21,8 @@ foreach ($projects as $proj) {
 echo $projects_technologies[0]['name'];
 exit();
 
+
+
+
+require_once "models/homeModelGET.php";
 require_once "views/homeView.php";

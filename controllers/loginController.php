@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: home');
+    header('Location:'.ROOT_URL);
     exit();
 }
 
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (FormValidators::login()) {
 
         if (User::login()) {
-            header('Location: home');
+            header('Location:'.ROOT_URL);
             exit();
         }
     }

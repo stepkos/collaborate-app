@@ -1,14 +1,15 @@
 <?php
 
-define("ROOT_URL", "collaborate/");
+define("ROOT_URL","http://localhost/collaborate/");
 
 $url = $_SERVER["REQUEST_URI"];
 $url = explode("/", $url);
 $url = array_filter($url);
 
+
 // Redirect to controller if parameter given
 if (isset($url[2]) ) {
-
+    
     switch ($url[2]) {
         case "register":
             require_once "controllers/registerController.php";
@@ -30,10 +31,6 @@ if (isset($url[2]) ) {
             require_once "controllers/userPanelController.php";
             break;
 
-        case "home":
-            require_once "controllers/homeController.php";
-            break;
-        
         case "addProject":
             require_once "controllers/addProjectController.php";
             break;
@@ -42,10 +39,20 @@ if (isset($url[2]) ) {
             require_once "controllers/profileController.php";
             break;
 
+        case "offertDetails":  
+            require_once "controllers/offertDetailsController.php";
+            break;
+
+        // TEST
+        case "findPeople":
+            require_once "views/findPeople.php";
+            break;
+        // --------
+
         default:
             echo "Error 404";
     }
 }
 else {
-    echo "Collaborate - Best tool for worst jobs";
-    }
+    require_once "controllers/homeController.php"; 
+}

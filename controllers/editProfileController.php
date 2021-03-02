@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         require_once 'models/editProfileModelPOST.php';
         
-        header('Location: home');
+        header('Location:'.ROOT_URL);
         exit();
     }
 }
