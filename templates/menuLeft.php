@@ -13,7 +13,7 @@
     </header>
 
     <section id="user-section">
-        <div id="profile-picture" style="background-image: url(data:image/jpeg;base64,<?php echo $_SESSION['profile_picture']?>"></div>
+        <div id="profile-picture" style="background-image: url(data:image/jpg;base64,<?php echo $_SESSION['profile_picture']?>"></div>
 
         <h1 id="user-name-text"><?= $_SESSION['user_name'].' '.$_SESSION['user_surname'] ?></h1>
 

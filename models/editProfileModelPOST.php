@@ -37,4 +37,4 @@ $_SESSION['user_active'] = $user['active'];
 $_SESSION['user_premium'] = $user['premium'];
 $_SESSION['user_email'] = $user['email'];
 $_SESSION['user_description'] = $user['description'];
-$_SESSION['user_picture'] = base64_encode($user['profile_picture']);
+$_SESSION['profile_picture'] = $user['profile_picture'];
