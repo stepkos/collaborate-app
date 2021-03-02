@@ -51,18 +51,22 @@ main {
     width: 100%;
     margin-top: 10px;
     flex-direction: column;
-    align-items: center;
-    height: auto;
     padding-bottom: 30px;
     padding-top: 500px;
-    overflow-x: hidden;
+}
+#projects-holder a{
+    align-self: center;
+    width: 70%;
+    height: 250px;
+    margin-top: 50px;
 }
 
 #my-projects {
-    margin-left: 40px;
+    
     align-self: flex-start;
     margin-top: 40px;
     font-size: 1.6em;
+    align-self: center;
 }
 
 #find-projects {
@@ -75,7 +79,7 @@ main {
     cursor: pointer;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 0px;
     font-size: 2em;
     border-radius: 3rem;
     transition: 0.3s ease-in-out;
@@ -89,8 +93,8 @@ main {
 }
 
 .project-card {
-    width: 70%;
-    height: 250px;
+    width: 100%;
+    height:100%;
     border-radius: 3rem;
     display: flex;
     flex-direction: column;
@@ -98,9 +102,9 @@ main {
     -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.4);
     -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.4);
     box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.4);
-    margin-top: 50px;
+    
     position: relative;
-    margin-left: 15%;
+   
 }
 
 .project-img-holder {

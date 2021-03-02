@@ -32,20 +32,25 @@
                                     <h1 id='my-projects'>My projects</h1>
                         ";
 
+                        
                         for($i = 0; $i < $owned_offerts_count[0][0]; $i+=1){
 
-                            $id = $owned_offerts[0][0];
-                            
-                            $offert_name = $owned_offerts[0][2];
-                            print_r($offert_name);
-                            $project_category = $owned_offerts[0][4];
-                                
-                            $technologies = NULL;
-                            foreach($owned_offerts as $record){
-                                $name = $record['technology'];
-                                $color = $record['color'];
-                                $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
-                            };
+                            $tempName = $user_projects[0][2];
+                            $single_offert = array_values(array_filter($user_projects, function($record) use ($tempName){
+                                return $record[2] === $tempName;
+                            }));
+                            $user_projects = array_slice($user_projects, count($single_offert));
+
+                            $id = $single_offert[0][0];
+                            $offert_name = $single_offert[0][2];
+                            $project_category = $single_offert[0][4];
+                           
+                           $technologies = NULL;
+                           foreach($single_offert as $record){
+                               $name = $record['technology'];
+                               $color = $record['color'];
+                               $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
+                           };
     
                             $link = ROOT_URL."offertDetails/".$id;
 
@@ -82,7 +87,7 @@
 
            <section id="right-holder">
 
-                <?php   print_r($owned_offerts_count[0][0]);  ?>
+                    
 
                 <div id="swipe-information">
                     <span class="material-icons">
