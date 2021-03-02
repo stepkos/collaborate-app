@@ -135,7 +135,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .technology-div {
@@ -148,7 +148,7 @@ main {
     border-radius: 1.3em;
     cursor: pointer;
     position: relative;
-    margin: 10px;
+    margin: 20px;
 }
 
 #projects-h1 {

@@ -168,7 +168,7 @@ main {
     flex-wrap: wrap;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     left: 5%;
     top: 550px;
 }
@@ -178,7 +178,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 7px;
+    padding: 15px;
     color: white;
     border-radius: 1.3em;
     cursor: pointer;
