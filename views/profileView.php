@@ -136,21 +136,22 @@
 
                 <section id="projects-holder">
                     <?php
-                    
-                    for($i = 1; $i <  count($user_projects); $i+=1){
+                   
+                    for($i = 0; $i <  $user_projects_count[0][0]; $i+=1){
 
                         $single_offert = array_values(array_filter($user_projects, function ($offert_data) use($i){
                             return($offert_data['id'] == $i);
                         }));
 
-                        if(isset($single_offert[0])){
+                        
+                        
 
-                            $id = $single_offert[0][0];
-                            $offert_name = $single_offert[0][2];
-                            $project_category = $single_offert[0][4];
+                            $id = $user_projects[0][0];
+                            $offert_name = $user_projects[0][2];
+                            $project_category = $user_projects[0][4];
                             
                             $technologies = NULL;
-                            foreach($single_offert as $record){
+                            foreach($user_projects as $record){
                                 $name = $record['technology'];
                                 $color = $record['color'];
                                 $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
@@ -175,7 +176,7 @@
                                 </div>
                             </a>
                             ";
-                        };
+                        
                     }
                     
                     ?>
