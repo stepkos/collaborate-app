@@ -15,7 +15,7 @@
         
         <main>
             <section id="leftSection">
-                <div id="profile-picture1" style="background-image: url('../static/images/john.jpg')"></div>
+                <div id="profile-picture1" style="background-image: url(data:image/jpg;base64,<?php echo $_SESSION['profile_picture']?>"></div>
                 <p id="user-name"><?php print_r($user_main_data[0][0])   ?></p>
 
                 <div id="adds-holder">
