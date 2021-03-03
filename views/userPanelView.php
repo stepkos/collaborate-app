@@ -60,8 +60,9 @@
                             $user_projects = array_slice($user_projects, count($single_offert));
 
                             $id = $single_offert[0][0];
-                            $offert_name = $single_offert[0][2];
-                            $project_category = $single_offert[0][4];
+                            $offert_name = $single_offert[0][3];
+                            $project_picture = $single_offert[0][2];
+                            $project_category = $single_offert[0][5];
                            
                            $technologies = NULL;
                            foreach($single_offert as $record){
@@ -75,7 +76,7 @@
                            echo "
                            <a href='$link' style='text-decoration:none'>
                                <div class='project-card'>
-                                   <div class='project-img-holder' style='background-image:url(static/images/john.png)'></div>
+                                   <div class='project-img-holder' style='background-image:url(data:image/jpg;base64,".$project_picture.")'></div>
                                    <div class='project-category'>$project_category</div>
                                    <div class='project-bottom-holder'>
                                        <h1 class='project-title'>
