@@ -49,6 +49,10 @@ if (isset($url[2]) ) {
             break;
         // --------
 
+        case "about":
+            require_once "views/about.php";
+            break;
+
         default:
             echo "Error 404";
     }
