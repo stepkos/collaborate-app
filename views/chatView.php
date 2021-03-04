@@ -102,6 +102,26 @@
                     <div class="received">Dooobra już nie mogę sie doczekać. Piszę teraz jaka dłuższa wiadomość tylko po to by zrobić test ale z tego co widzę zrobiłem to genialnie!</div>
                     <div style="clear: both;"></div>
 
+
+
+                    <div class="sent">Siema</div>
+                    <div style="clear: both;"></div>
+
+                    <div class="sent">Ciekawe kto wpadał na tak szalony pomysł by pisać tą apkę w PHP</div>
+                    <div style="clear: both;"></div>
+
+                    <div class="received">Elo</div>
+                    <div style="clear: both;"></div>
+
+                    <div class="received">No przecież nie kto inny jak Ty mordziaty XD</div>
+                    <div style="clear: both;"></div>
+
+                    <div class="sent">Postaram się do rana front-end do tech chatu zrobić</div>
+                    <div style="clear: both;"></div>
+
+                    <div class="received">Dooobra już nie mogę sie doczekać. Piszę teraz jaka dłuższa wiadomość tylko po to by zrobić test ale z tego co widzę zrobiłem to genialnie!</div>
+                    <div style="clear: both;"></div>
+
                 </div>
 
                 <div class="type">

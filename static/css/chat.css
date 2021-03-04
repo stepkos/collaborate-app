@@ -157,6 +157,20 @@ main>section {
     box-sizing: border-box;
     padding: 20px;
     /* background-color: red; */
+    overflow-y: auto;
+}
+
+.chat::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat::-webkit-scrollbar-track {
+    background: #F5F5F5;
+}
+
+.chat::-webkit-scrollbar-thumb {
+    background: #C4C4C4;
+    border-radius: 10px;
 }
 
 .chat>div[class] {
@@ -166,6 +180,7 @@ main>section {
     max-width: 60vh;
     margin-bottom: 13px;
     line-height: 130%;
+    box-shadow: 0 0 10px -2px rgb(168, 168, 168);
 }
 
 .chat .sent {
