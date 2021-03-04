@@ -54,11 +54,12 @@ main {
     padding-bottom: 30px;
 }
 
-#projects-holder a {
+#projects-holder label{
     align-self: center;
     width: 70%;
     height: 250px;
     margin-top: 50px;
+    cursor: pointer;
 }
 
 #my-projects {
