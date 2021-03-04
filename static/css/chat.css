@@ -154,7 +154,30 @@ main>section {
     height: 80vh;
     position: fixed;
     top: 120px;
-    background-color: red;
+    box-sizing: border-box;
+    padding: 20px;
+    /* background-color: red; */
+}
+
+.chat>div[class] {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 60vh;
+    margin-bottom: 13px;
+    line-height: 130%;
+}
+
+.chat .sent {
+    /* text-align: right; */
+    float: right;
+    background-color: #E63946;
+}
+
+.chat .received {
+    /* text-align: left; */
+    float: left;
+    background-color: #C4C4C4;
 }
 
 .type {
