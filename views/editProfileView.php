@@ -92,6 +92,7 @@
         
     </main>
 
-
+    <script src="static/javascript/jquery.js" language="javascript"></script>
+    <script src="static/javascript/searchInput.js" language="javascript"></script>
 </body>
 </html>

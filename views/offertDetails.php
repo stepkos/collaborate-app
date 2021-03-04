@@ -46,7 +46,7 @@ ines (61 sloc) 2.74 KB
         
 
             //dodać link do profilu ownera
-            $owner_profile_lin = ROOT_URL."profile/"
+            $owner_profile_link = ROOT_URL."profile/".$offert_main_data[0]['owner_id'];
 
 
 
@@ -59,7 +59,7 @@ ines (61 sloc) 2.74 KB
                     <div id='owner-details'>
                         <p id='project-manager'>Project Manager</p>
                         <p id='owner-name'>$project_owner</p>
-                        <a href='#'>
+                        <a href='{$owner_profile_link}'>
                             <div id='show-profile'>Show profile</div>
                         </a>
                     </div>

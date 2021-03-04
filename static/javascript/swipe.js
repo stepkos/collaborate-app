@@ -37,6 +37,8 @@ class Carousel{
 
 
     onPan(e, topCard){
+
+      console.log("pan!")
       
       // remove transition property
       topCard.style.transition = null

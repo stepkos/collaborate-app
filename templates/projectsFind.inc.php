@@ -14,7 +14,7 @@
         $project_category = $single_offert[0][5];
         $project_picture = $single_offert[0][2];
             
-            $technologies = NULL;
+            $technologies = NULL;    
             foreach($single_offert as $record){
                 $name = $record['technology'];
                 $color = $record['color'];

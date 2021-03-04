@@ -5,7 +5,7 @@
     $offert_id = $url[3];
 
     $offert_main_data = $db->query(
-        "Select offerts_detailed.name, offerts_detailed.profile_picture, offerts_detailed.picture, offerts_detailed.project_category, offerts_detailed.description, offerts_detailed.owner
+        "Select offerts_detailed.name, offerts_detailed.profile_picture, offerts_detailed.picture, offerts_detailed.project_category, offerts_detailed.description, offerts_detailed.owner, offerts_detailed.owner_id
         from offerts_detailed where offerts_detailed.id = {$offert_id};")->fetchAll();
 
 

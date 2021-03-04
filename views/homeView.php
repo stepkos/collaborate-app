@@ -120,16 +120,7 @@
                     </span>
                 </div>
 
-                <div id="cos" style="width:100px; height:100px; background-color:red;">
-
-                    <?php 
-                        // print_r($id_project_selected); 
-                        // echo "<br/>"; 
-                        // print_r($display_projects_count)
-                    ?> 
-                </div>  
-
-
+            
 
                 <?php
 
