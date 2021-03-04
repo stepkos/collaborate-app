@@ -42,16 +42,24 @@ if (isset($url[2]) ) {
         case "offertDetails":  
             require_once "controllers/offertDetailsController.php";
             break;
+            
+        case "chat":
+            require_once "controllers/chatController.php";
+            break;
+
+        // case "settings":
+        //     require_once "";
+        //     break;
+
+        case "about":
+            require_once "views/about.php";
+            break;
 
         // TEST
         case "findPeople":
             require_once "views/findPeople.php";
             break;
         // --------
-
-        case "about":
-            require_once "views/about.php";
-            break;
 
         default:
             echo "Error 404";
