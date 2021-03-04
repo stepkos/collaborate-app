@@ -28,7 +28,7 @@
 
                     echo "<section id='left-panel'>
                                 <section id='projects-holder'>
-                                    <form method='POST' id='my-projects-form'>
+                                    <form method='POST' id='my-projects-form' onclick=\"document.getElementById('my-projects-form').submit();\">
                                     <div id='find-projects'>Find projects</div>
                                     <h1 id='my-projects'>My projects</h1>
                         ";
@@ -58,7 +58,8 @@
 
                             echo "
                                     <input type='radio' value=$id name=\"test\" id=$id style='display:none;'/>
-                                    <label class='project-card' for=\"test\">
+                                    <label for=$id name=\"test\">
+                                        <div class='project-card'>
                                         <div class='project-img-holder' style='background-image:url(data:image/jpg;base64,".$project_picture."'></div>
                                         <div class='project-category'>$project_category</div>
                                         <div class='project-bottom-holder'>
@@ -70,13 +71,14 @@
                                                 $technologies
                                             </div>
                                         </div>
+                                        </div>
                                     </label>
                                 
                             ";
                         }
 
                         echo "
-                                    <input type=\"submit\" id=\"button\"/>
+                                    <input type=\"submit\" id=\"button\" style='margin-top:50px'/>
                                     </form>
                                 </section>
                             </section>
