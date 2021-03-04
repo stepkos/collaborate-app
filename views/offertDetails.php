@@ -45,8 +45,8 @@ ines (61 sloc) 2.74 KB
             }
         
 
-            
-
+            //dodać link do profilu ownera
+            $owner_profile_lin = ROOT_URL."profile/"
 
 
 

@@ -4,7 +4,6 @@
 
 
     $db = require_once "db/connect.php";
-    $profile_user_id = $_SESSION['user_id'];
 
     $offerts_main_data = $db->query(
         "
