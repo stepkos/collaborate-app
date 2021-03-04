@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 * {
     margin: 0;
     padding: 0;
 }
 
 main {
-    margin-left: calc(21vw - 4px);
+    /* margin-left: calc(21vw - 4px); */
+    margin-left: 21vw;
 }
 
 main>section {
-    display: inline-block;
+    /* display: inline-block; */
+    float: left;
 }
 
 .left {
@@ -22,6 +25,7 @@ main>section {
     padding: 0 20px;
     font-weight: 400;
     letter-spacing: 1px;
+    margin-bottom: 3vh;
 }
 
 .left header>div {
@@ -66,6 +70,7 @@ main>section {
 
 .person .info h3 {
     color: rgb(98, 98, 98);
+    font-weight: 400;
 }
 
 .person img {
@@ -85,4 +90,116 @@ main>section {
     margin: 30px 0;
     border-radius: 50%;
     background-color: #05FF00;
+}
+
+.right {
+    /* width: 48vw; */
+    /* height: 100vh; */
+    /* background-color: red; */
+}
+
+.right>header {
+    width: 49vw;
+    height: 80px;
+    padding: 20px 0;
+    background-color: #F5F5F5;
+    position: fixed;
+}
+
+.right>header>div {
+    display: inline-block;
+}
+
+.right>header>div:first-child {
+    margin-left: 5vh;
+}
+
+.right>header .info {
+    height: 80px;
+    transform: translateY(-18px);
+    margin-left: 1vw;
+}
+
+.right>header .info h2 {
+    margin-bottom: 3px;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+    font-weight: 900;
+}
+
+.right>header .info h3 {
+    color: rgb(98, 98, 98);
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.right>header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.right>header .owner {
+    right: 3vw;
+    width: 30px;
+    height: 30px;
+    margin: 25px 0;
+}
+
+.chat {
+    width: 49vw;
+    height: 80vh;
+    position: fixed;
+    top: 120px;
+    background-color: red;
+}
+
+.type {
+    position: fixed;
+    bottom: 0;
+    height: calc(20vh - 120px);
+    width: 49vw;
+    background-color: #F5F5F5;
+}
+
+.fieldSet {
+    margin-left: 8vw;
+}
+
+.fieldSet input[type=text] {
+    width: 30vw;
+    height: 40px;
+    padding: 3px;
+    margin: 1.4vh 0;
+    font-size: 22px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.fieldSet input[type=text]:focus {
+    box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.6);
+}
+
+.fieldSet input[type=submit] {
+    margin-left: 5px;
+    width: 70px;
+    height: 40px;
+    letter-spacing: 2px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+    outline: none;
+    background-color: #E63946;
+    border: none;
+    color: white;
+}
+
+.fieldSet input[type=submit]:hover {
+    background-color: black;
 }

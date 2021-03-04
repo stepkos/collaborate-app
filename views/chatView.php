@@ -66,8 +66,8 @@
             </div>
         </section>
 
-        <!-- <section>
-            <div class="right" style="margin-top: -50px;">
+        <section>
+            <div class="right">
 
                 <header>
                     <div>
@@ -82,8 +82,35 @@
                     <div class="owner"></div>
                 </header>
 
+                <div class="chat">
+
+                    <div class="sent">Siema</div>
+                    <div class="sent">Ciekawe kto wpadał na tak szalony pomysł by pisać tą apkę w PHP</div>
+
+                    <div class="received">Elo</div>
+                    <div class="received">No przecież nie kto inny jak Ty mordziaty XD</div>
+
+                    <div class="sent">Postaram się do rana front-end do techo chatu zrobić</div>
+
+                </div>
+
+                <div class="type">
+                    <form method="POST">
+
+                        <div class="fieldSet">
+
+                            <input type="text" name="message">
+                            <input type="submit" value="Sent">
+
+                        </div>
+
+                    </form>
+                </div>
+
             </div>
-        </section> -->
+        </section>
+
+        <section style="clear: both;"></section>
 
     </main>
 
