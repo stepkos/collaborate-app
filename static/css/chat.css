@@ -184,13 +184,11 @@ main>section {
 }
 
 .chat .sent {
-    /* text-align: right; */
     float: right;
     background-color: #E63946;
 }
 
 .chat .received {
-    /* text-align: left; */
     float: left;
     background-color: #C4C4C4;
 }
