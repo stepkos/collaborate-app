@@ -6,7 +6,7 @@
 
     $user_main_data = $db->query(
         "SELECT concat(name,' ',surname) as 'fullname', 
-        description from users where id={$profile_user_id};")->fetchAll();
+        description, profile_picture from users where id={$profile_user_id};")->fetchAll();
 
 
     $user_social_links = $db->query(
