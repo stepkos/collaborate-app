@@ -8,8 +8,22 @@
 
 
     $users_main_data = $db->query(
-        "Select "
-    )
+        "Select users.id, Concat(users.name,' ',users.surname) as 'fullname', users.description, technology.name as 'technology', technology.color
+        from users 
+        inner join users_technology on users.id = users_technology.id_user 
+        inner join technology on users_technology.id_technology = technology.id
+        
+        where users.id <> $profile_user_id and users.id not in (
+            select id_user from liked_offert where id_offert = $id_project_selected
+        );")->fetchAll();
+
+    $users_count = $db->query(
+        "Select count(users.id ) from users 
+        where users.id <> $profile_user_id and users.id not in 
+        (
+            select id_user from liked_offert where id_offert = $id_project_selected
+        );"
+    )->fetchAll();
 
 
     $user_projects = $db->query(
