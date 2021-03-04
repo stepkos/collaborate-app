@@ -185,7 +185,7 @@ main>section {
     font-size: 20px;
     padding: 10px;
     border-radius: 15px;
-    max-width: 60vh;
+    max-width: 60%;
     margin-bottom: 13px;
     line-height: 130%;
     box-shadow: 0 0 10px -2px rgb(168, 168, 168);
