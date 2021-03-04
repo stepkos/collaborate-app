@@ -28,7 +28,7 @@
 
                     echo "<section id='left-panel'>
                                 <section id='projects-holder'>
-            
+                                    <form method='POST' id='my-projects-form'>
                                     <div id='find-projects'>Find projects</div>
                                     <h1 id='my-projects'>My projects</h1>
                         ";
@@ -57,8 +57,8 @@
                             $link = ROOT_URL."offertDetails/".$id;
 
                             echo "
-                                <a href='$link'>
-                                    <div class='project-card'>
+                                    <input type='radio' value=$id name=\"test\" id=$id style='display:none;'/>
+                                    <label class='project-card' for=\"test\">
                                         <div class='project-img-holder' style='background-image:url(data:image/jpg;base64,".$project_picture."'></div>
                                         <div class='project-category'>$project_category</div>
                                         <div class='project-bottom-holder'>
@@ -70,12 +70,14 @@
                                                 $technologies
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </label>
+                                
                             ";
                         }
 
                         echo "
+                                    <input type=\"submit\" id=\"button\"/>
+                                    </form>
                                 </section>
                             </section>
                         ";
@@ -97,6 +99,10 @@
                     </span>
                 </div>
 
+                <div id="cos" style="width:100px; height:100px; background-color:red;">
+
+                    <?php print_r($id_project_selected); ?>
+                </div>  
 
                 <?php
 
