@@ -29,7 +29,13 @@
                     echo "<section id='left-panel'>
                                 <section id='projects-holder'>
                                     <form method='POST' id='my-projects-form' onclick=\"document.getElementById('my-projects-form').submit();\">
-                                    <div id='find-projects'>Find projects</div>
+
+                                    <input type='radio' value=NULL name=\"chosenIdProject\" id='find-projects-input' style='display:none;'/>
+                                    <label for='find-projects-input' >
+                                        <div id='find-projects'>
+                                            Find projects
+                                        </div>
+                                    </label>
                                     <h1 id='my-projects'>My projects</h1>
                         ";
 
@@ -57,8 +63,8 @@
                             $link = ROOT_URL."offertDetails/".$id;
 
                             echo "
-                                    <input type='radio' value=$id name=\"test\" id=$id style='display:none;'/>
-                                    <label for=$id name=\"test\">
+                                    <input type='radio' value=$id name=\"chosenIdProject\" id=$id style='display:none;'/>
+                                    <label for=$id name=\"chosenIdProject\">
                                         <div class='project-card'>
                                         <div class='project-img-holder' style='background-image:url(data:image/jpg;base64,".$project_picture."'></div>
                                         <div class='project-category'>$project_category</div>
@@ -78,7 +84,7 @@
                         }
 
                         echo "
-                                    <input type=\"submit\" id=\"button\" style='margin-top:50px'/>
+                                    
                                     </form>
                                 </section>
                             </section>
@@ -93,7 +99,9 @@
 
            <section id="right-holder">
 
-                    
+           <div id="searchingFor">
+                Szukanie użytkowników do projektu Myszka Miki
+           </div>
 
                 <div id="swipe-information">
                     <span class="material-icons">
