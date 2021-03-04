@@ -36,7 +36,7 @@
                     <div class="person">
 
                         <div>
-                            <img src="static\images\john.jpg" alt="profile picture">
+                            <img src="static\images\john.png" alt="profile picture">
                         </div>
 
                         <div class="info">
