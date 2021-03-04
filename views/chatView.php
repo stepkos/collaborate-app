@@ -62,16 +62,28 @@
 
                     </div>
 
-
                 </nav>
             </div>
         </section>
 
-        <section>
-            <div class="right">
+        <!-- <section>
+            <div class="right" style="margin-top: -50px;">
+
+                <header>
+                    <div>
+                        <img src="static\images\john.png" alt="profile picture">
+                    </div>
+
+                    <div class="info">
+                        <h2>Kamil Paczkowski</h2>
+                        <h3>AC/DC Page</h3>
+                    </div>
+
+                    <div class="owner"></div>
+                </header>
 
             </div>
-        </section>
+        </section> -->
 
     </main>
 
