@@ -99,9 +99,20 @@
 
            <section id="right-holder">
 
-           <div id="searchingFor">
-                Szukanie użytkowników do projektu Myszka Miki
-           </div>
+
+
+            <?php
+                if(isset($id_project_selected)){
+
+                    $cos = $project_name[0][0];
+                    echo "
+                    <div id='searchingFor'>
+                        Szukanie użytkowników do projektu $cos
+                    </div>
+                    ";
+                }
+            ?>
+           
 
                 <div id="swipe-information">
                     <span class="material-icons">
@@ -111,55 +122,22 @@
 
                 <div id="cos" style="width:100px; height:100px; background-color:red;">
 
-                    <?php print_r($id_project_selected); ?>
+                    <?php 
+                        // print_r($id_project_selected); 
+                        // echo "<br/>"; 
+                        // print_r($display_projects_count)
+                    ?> 
                 </div>  
+
+
 
                 <?php
 
-                    $z_index = 1;
-                    for($i = 0; $i <  $display_projects_count[0][0]; $i+=1){
-
-                        $tempName = $offerts_main_data[0][2];
-                        $single_offert = array_values(array_filter($offerts_main_data, function($record) use ($tempName){
-                            return $record[2] === $tempName;
-                        }));
-                        $offerts_main_data = array_slice($offerts_main_data, count($single_offert));
-
-                        $id = $single_offert[0][0];
-                        $offert_name = $single_offert[0][3];
-                        $project_category = $single_offert[0][5];
-                        $project_picture = $single_offert[0][2];
-                            
-                            $technologies = NULL;
-                            foreach($single_offert as $record){
-                                $name = $record['technology'];
-                                $color = $record['color'];
-                                $technologies.="<div class='project-tech' style='background-color:{$color}'>{$name}</div>";
-                            };
-
-                            $link = ROOT_URL."offertDetails/".$id;
-                            
-                            echo "
-                                    <div class='project-card-find' style='z-index:{$z_index}' id='{$id}'>
-                                        <a href='{$link}'>
-                                            <div class='project-img-holder' style='background-image:url(data:image/jpg;base64,".$project_picture."'></div>
-                                            <div class='project-category'>{$project_category}</div>
-
-                                            <div class='project-bottom-holder-find'>
-                                                <h1 class='project-title'>
-                                                    {$offert_name}
-                                                </h1>
-
-                                                <div class='project-tech-holder'>
-                                                    {$technologies}
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                ";
-                            
-                            $z_index+=1;
-                           
+                    if(isset($display_projects_count)){
+                        require_once "templates/projectsFind.inc.php";
+                    }
+                    else{
+                        require_once "templates/peopleFind.inc.php";
                     };
                 ?> 
 
