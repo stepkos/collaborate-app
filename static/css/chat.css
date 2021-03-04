@@ -14,9 +14,8 @@ main>section {
 .left {
     width: 25vw;
     height: 90vh;
-    background-color: #DDD;
     padding: 5vh 5vh;
-    overflow-y: auto;
+    background-color: #DDD;
 }
 
 .left header {
