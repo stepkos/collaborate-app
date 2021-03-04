@@ -91,7 +91,7 @@ main {
     align-self: flex-end;
     width: 90%;
     height: 60%;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     display: flex;
     align-items: center;

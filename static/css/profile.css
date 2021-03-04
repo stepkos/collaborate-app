@@ -23,7 +23,8 @@ main {
     align-self: center;
     border-radius: 50%;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
     margin-top: 20px;
 }
 
