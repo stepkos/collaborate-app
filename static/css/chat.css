@@ -189,11 +189,11 @@ main>section {
 }
 
 .fieldSet {
-    margin-left: 8vw;
+    margin-left: 2.3vw;
 }
 
 .fieldSet input[type=text] {
-    width: 30vw;
+    width: 40vw;
     height: 40px;
     padding: 3px;
     margin: 1.4vh 0;
