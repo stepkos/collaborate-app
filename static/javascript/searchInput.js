@@ -1,6 +1,4 @@
 
-const technologyList = $('.technology-div')
-
 $('#search-input').on('input', (e)=>{
     
     let searchValue = $('#search-input').val().trim().toLowerCase();
@@ -9,8 +7,4 @@ $('#search-input').on('input', (e)=>{
         let element = $('.technology-div').eq(index);
         (element.text().trim().toLowerCase().startsWith(searchValue)) ? element.show() : element.hide()
     })
-    
-
-
-    console.log(searchValue)
 })
