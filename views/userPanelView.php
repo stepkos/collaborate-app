@@ -14,7 +14,18 @@
 
 
         <section id="leftSection">
-                <div id="profile-picture1" style="background-image: url(data:image/jpg;base64,<?php echo $_SESSION['profile_picture']?>"></div>
+                <?php
+                    if(empty($user_main_data[0][2])){
+                        $path_to_img = ROOT_URL.'static/images/unknown-picture.jpg';
+                        echo "<div id='profile-picture1' style='background-image: url($path_to_img)'></div>";
+                    }
+                    else{
+                        $profile_picture = $user_main_data[0][2];
+                        echo "
+                            <div id='profile-picture' style='background-image: url(data:image/jpg;base64,$profile_picture)'></div>
+                        ";
+                    };
+                ?>
                 <p id="user-name"><?php print_r($user_main_data[0][0]) ?></p>
 
                 <div id="adds-holder">

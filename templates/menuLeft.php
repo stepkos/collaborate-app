@@ -13,7 +13,24 @@
     </header>
 
     <section id="user-section">
-        <div id="profile-picture" style="background-image: url(data:image/jpg;base64,<?php echo $_SESSION['profile_picture']?>"></div>
+
+        <?php
+            
+            if(empty($_SESSION['profile_picture'])){
+                $path_to_img = ROOT_URL.'static/images/unknown-picture.jpg';
+                echo "
+                <div id='profile-picture' style='background-image: url($path_to_img)'></div>
+                ";
+            }
+            else{
+                $profile_picture = $_SESSION['profile_picture'];
+                echo "
+                    <div id='profile-picture' style='background-image: url(data:image/jpg;base64,$profile_picture)'></div>
+                ";
+            }
+        ?>
+    
+        
 
         <h1 id="user-name-text"><?= $_SESSION['user_name'].' '.$_SESSION['user_surname'] ?></h1>
 
