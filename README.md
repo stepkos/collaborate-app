@@ -34,7 +34,14 @@ lorem ispum
 * For "match" system visuals, including animations are working but on backend they are not handled due to teacher's deadline
 * For chats, they have also developed visuals but are not handled in any way
 
-
+## Technologies used
+* HTML5
+* CSS3
+* Javascript ES6
+* Jquery.js
+* Hammer.js
+* PHP
+* MySQL
 
 ## How to run
 - Install PHP and MySQL
